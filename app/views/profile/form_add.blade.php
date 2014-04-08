@@ -14,10 +14,10 @@
 
 <tr>
 	<td class="span2">
-		Maksimal Kecepatan Upload
+		 Max Upload
 	</td>
 	<td>:
-		<input type='text' id='max_upload' placeholder='max upload...' />
+		<input type='text' id='max_upload'   style="width:40px;" /> k
 	</td>
 </tr>
 
@@ -25,20 +25,20 @@
 
 <tr>
 	<td class="span2">
-		Maksimal Kecepatan Download
+		 Max Download
 	</td>
 	<td>:
-		<input type='text' id='max_download' placeholder='max download...' />
+		<input style="width:40px;" type='text' id='max_download'  /> k
 	</td>
 </tr>
 
 
 <tr>
 	<td class="span2">
-		Maksimal login
+		Max login
 	</td>
 	<td>:
-		<input type='text' id='max_login' placeholder='max login...' />
+		<input style="width:30px;"  type='text' id='max_login'  /> 
 	</td>
 </tr>
 
