@@ -47,6 +47,24 @@
 
 </head>
 <body>
+
+
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 
+  <div class="modal-body">
+    <p>loading...</p>
+  </div>
+ 
+</div>
+
+
+
+
+
  
   <div class="container">
   @include('template.komponen.nav_atas')

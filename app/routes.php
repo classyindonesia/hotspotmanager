@@ -30,3 +30,4 @@ Route::post('kick_user', ['before' => 'auth', 'uses' => 'UseraktifController@kic
 
 /* profile */
 Route::get('profile', ['before' => 'auth', 'uses' => 'ProfileController@index']);
+Route::get('profile/add', ['before' => 'auth', 'uses' => 'ProfileController@add']);
