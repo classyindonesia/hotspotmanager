@@ -11,19 +11,22 @@
 |
 */
 
-Route::get('/', ['before' => 'auth', 'uses' => 'HomeController@index']);
 
 /* login */
-Route::get('login', function(){
-	return View::make('login');
-});
-Route::post('check_login', function(){
-	if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')))){
-	    return Redirect::intended('/');
-	}else{
-		return Redirect::to('login');
-	}
-});
+Route::get('login', 'LoginController@index');
+Route::post('check_login', 'LoginController@check_login');
+Route::get('logout', 'LoginController@logout');
 
 
-Route::post('kick_user', ['before' => 'auth', 'uses' => 'HomeController@kick_user']);
+/* home */
+Route::get('/', ['before' => 'auth', 'uses' => 'HomeController@index']);
+
+
+/* user aktif */
+Route::get('user_aktif', ['before' => 'auth', 'uses' => 'UseraktifController@index']);
+Route::post('kick_user', ['before' => 'auth', 'uses' => 'UseraktifController@kick_user']);
+
+
+
+/* profile */
+Route::get('profile', ['before' => 'auth', 'uses' => 'ProfileController@index']);

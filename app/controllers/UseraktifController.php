@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class UseraktifController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -14,16 +14,16 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+
 	public function __construct(){
-		View::share('home', true);
+		View::share('user_aktif', true);
 	}
 
+
+
+
 	public function index(){
-		$userhotspot = Radius_Radcheck::with('radusergroup')
-		->groupBy('username')
-		->paginate(10);
-		return View::make('home.index')
-		->with('userhotspot', $userhotspot);
+		return View::make('user_aktif.index');
 	}
 
 

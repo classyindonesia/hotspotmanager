@@ -49,6 +49,7 @@
 <body>
  
   <div class="container">
+  @include('template.komponen.nav_atas')
 
 @yield('main')
 

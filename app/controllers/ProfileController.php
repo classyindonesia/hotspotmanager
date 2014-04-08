@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class ProfileController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,23 +15,12 @@ class HomeController extends BaseController {
 	|
 	*/
 	public function __construct(){
-		View::share('home', true);
+		View::share('profile', true);
 	}
 
 	public function index(){
-		$userhotspot = Radius_Radcheck::with('radusergroup')
-		->groupBy('username')
-		->paginate(10);
-		return View::make('home.index')
-		->with('userhotspot', $userhotspot);
+ 		return View::make('profile.index');
 	}
 
-
-	public function kick_user(){
-		$ip = Input::get('ip');
-		$username = Input::get('username');
-     	$command = "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x 192.168.2.1:1700 disconnect rahasia123";
-      exec($command);		
-	}
-
+ 
 }
