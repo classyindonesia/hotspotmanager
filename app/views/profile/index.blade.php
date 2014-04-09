@@ -10,8 +10,8 @@
 	<tr class="alert-info">
 		<td>No.</td>
 		<td>Nama Profil</td>
-		<td>max upload</td>
 		<td>max download</td>
+		<td>max upload</td>
 		<td>max login</td>
 		<td>action</td>
 	</tr>
@@ -29,7 +29,7 @@
 		<td>{{ $val[0] }}</td>
 		<td>{{ $val[1] }}</td>
 		<td>{{ $max_login->value }}</td>
-		<td> <i class='icon-edit'></i> </td>
+		<td> @include('profile.action.edit') </td>
 	</tr>
 
 @endforeach

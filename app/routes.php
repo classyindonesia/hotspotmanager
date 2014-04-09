@@ -12,6 +12,16 @@
 */
 
 
+if (Request::is('admin/*') || Request::is('admin')){
+    
+    require __DIR__.'/routes_admin.php'; 
+}
+
+
+
+
+
+
 /* login */
 Route::get('login', 'LoginController@index');
 Route::post('check_login', 'LoginController@check_login');
