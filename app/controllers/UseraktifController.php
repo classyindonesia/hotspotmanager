@@ -30,7 +30,7 @@ class UseraktifController extends BaseController {
 	public function kick_user(){
 		$ip = Input::get('ip');
 		$username = Input::get('username');
-     	$command = "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x 192.168.2.1:1700 disconnect rahasia123";
+     	$command = "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x 192.168.2.1:1700 disconnect 123";
       exec($command);		
 	}
 

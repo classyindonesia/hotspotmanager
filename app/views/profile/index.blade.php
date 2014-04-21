@@ -31,7 +31,7 @@
 		<td>{{ $max_login->value }}</td>
 		<td> @include('profile.action.edit') </td>
 	</tr>
-
+<?php $no++; ?>
 @endforeach
 
 
