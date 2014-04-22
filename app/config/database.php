@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '192.168.2.153',
+			'host'      => '192.168.2.160',
 			'database'  => 'radius',
-			'username'  => 'root',
-			'password'  => 'kediri',
+			'username'  => 'radius',
+			'password'  => 'm4nd1r1ajna',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
