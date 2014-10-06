@@ -4,72 +4,49 @@
 	<meta charset="UTF-8">
 	<title>Hotspot Manager</title>
  
-    {{ HTML::script('assets/js/jquery.js') }}
-    {{ HTML::script('assets/js/bootstrap-modal.js') }}
+    {{ HTML::script('assets/js/jquery/jquery.min.js') }}
+    {{ HTML::script('assets/js/bootstrap/bootstrap.min.js') }}
+    {{ HTML::script('assets/js/bootstrap/modal.js') }}
+    {{ HTML::script('assets/js/bootstrap/tooltip.js') }}
 
-      {{ HTML::style('assets/css/bootstrap.css') }}
-      {{ HTML::style('assets/css/bootstrap-responsive.css') }}
-
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-
-      .form-signin {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-        margin-bottom: 10px;
-      }
-      .form-signin input[type="text"],
-      .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-
-    </style>
-
-
+      {{ HTML::style('assets/css/bootstrap/bootstrap.min.css') }}
+      {{ HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') }}
+      {{ HTML::style('assets/css/font-awesome/css/font-awesome.min.css') }}
+ 
 </head>
 <body>
 
 
 
-
-
 <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
  
   <div class="modal-body">
     <p>loading...</p>
   </div>
  
+    </div>
+  </div>
 </div>
+
+
+ 
 
 
 
 
 
  
-  <div class="container">
+  <div class="container" style='margin-top: 70px;'>
   @include('template.komponen.nav_atas')
-
+  <div class='col-md-2' style='border-right:1px solid #aaa'>
+@include('template.komponen.nav_samping')    
+  </div>
+<div class='col-md-10'>
 @yield('main')
+</div>
 
 
  

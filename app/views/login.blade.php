@@ -2,64 +2,72 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hotspot Manager</title>
+	<title>Matrix Hotspot</title>
  
-    {{ HTML::script('assets/js/jquery.js') }}
-    {{ HTML::script('assets/js/bootstrap-modal.js') }}
+    {{ HTML::script('assets/js/jquery/jquery.min.js') }}
+    {{ HTML::script('assets/js/bootstrap/bootstrap.min.js') }}
 
-      {{ HTML::style('assets/css/bootstrap.css') }}
-      {{ HTML::style('assets/css/bootstrap-responsive.css') }}
+      {{ HTML::style('assets/css/bootstrap/bootstrap.min.css') }}
+      {{ HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') }}
 
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-
-      .form-signin {
-        max-width: 300px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-        margin-bottom: 10px;
-      }
-      .form-signin input[type="text"],
-      .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-
-    </style>
-
+ 
 
 </head>
 <body>
- 
-  <div class="container">
-  {{ Form::open(['url' => 'check_login', 'class' => 'form-signin']) }}
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input name="username" type="text" class="input-block-level" placeholder="User Name..">
-        <input type="password" name="password" class="input-block-level" placeholder="Password...">
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-      </form>
+   <div class="container">   
 
-    </div> <!-- /container -->
+
+
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Matrix Hotspot</div>
+
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        {{ Form::open(['url' => 'check_login', 'class' => 'form-horizontal', 'role' => 'form', 'id' => 'loginform']) }}    
+                                     
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                         <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username...">                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password...">
+                                    </div>
+                                    
+
+                                
+
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+ 
+                                    </div>
+                                </div>
+
+
+ 
+                            </form>     
+
+
+
+                        </div>                     
+                    </div>  
+        </div>
+ 
+    </div>
+
+
+ 
 
 
  </body>

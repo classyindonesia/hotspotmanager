@@ -5,7 +5,8 @@ $('#kick{{ $no }}').click(function(){
 
 	form_data ={
 		username: '{{ $list->username }}',
-		ip : '{{ $list->framedipaddress }}'
+		ip : '{{ $list->framedipaddress }}',
+		nas_ip : '{{ $list->nasipaddress }}'
 	}
 
 	$.ajax({

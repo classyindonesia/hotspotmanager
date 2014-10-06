@@ -1,44 +1,43 @@
+<script type="text/javascript">
+	$(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
 <h4>tambah profile template hotspot</h4>
 <hr>
 
-<table>
+<table class='table'>
 
 <tr>
-	<td class="span2">
+	<td width='col-md-2'>
 		Nama profile
 	</td>
-	<td>:
-		<input type='text' id='nama' placeholder='nama profile...' />
+	<td><input class='form-control' type='text' id='nama' placeholder='nama profile...' />
 	</td>
 </tr>
 
 <tr>
-	<td class="span2">
+	<td>
 		 Max Upload
 	</td>
-	<td>:
-		<input type='text' id='max_upload'   style="width:40px;" /> k
+	<td><input data-toggle='tooltip' title='(kbps)' class='form-control' type='text' id='max_upload'   style="width:100px;" /> 
 	</td>
 </tr>
 
 
 
 <tr>
-	<td class="span2">
+	<td>
 		 Max Download
 	</td>
-	<td>:
-		<input style="width:40px;" type='text' id='max_download'  /> k
+	<td><input data-toggle='tooltip' title='(kbps)' class='form-control' style="width:100px;" type='text' id='max_download'  /> 
 	</td>
 </tr>
 
 
 <tr>
-	<td class="span2">
+	<td>
 		Max login
 	</td>
-	<td>:
-		<input style="width:30px;"  type='text' id='max_login'  /> 
+	<td><input class='form-control' style="width:30px;"  type='text' id='max_login'  /> 
 	</td>
 </tr>
 
@@ -52,17 +51,40 @@
 </table>
 
 <script>
-jQuery('#max_download').keyup(function () { 
-    this.value = this.value.replace(/[^0-9\.]/g,'');
-});
+     $('#max_download').keypress(function(e) {
+            var a = [];
+            var k = e.which;
 
-jQuery('#max_upload').keyup(function () { 
-    this.value = this.value.replace(/[^0-9\.]/g,'');
-});
-jQuery('#max_login').keyup(function () { 
-    this.value = this.value.replace(/[^0-9\.]/g,'');
-});
+            for (i = 48; i < 58; i++)
+            a.push(i);
+            a.push(8);
+            if (!(a.indexOf(k)>=0))
+                e.preventDefault();
+            });
 
+     $('#max_upload').keypress(function(e) {
+            var a = [];
+            var k = e.which;
+
+            for (i = 48; i < 58; i++)
+            a.push(i);
+            a.push(8);
+            if (!(a.indexOf(k)>=0))
+                e.preventDefault();
+            });
+     $('#max_login').keypress(function(e) {
+            var a = [];
+            var k = e.which;
+
+            for (i = 48; i < 58; i++)
+            a.push(i);
+            a.push(8);
+            if (!(a.indexOf(k)>=0))
+                e.preventDefault();
+            });
+ 
+
+ 
 
 
 $('#tambahkan').click(function(){

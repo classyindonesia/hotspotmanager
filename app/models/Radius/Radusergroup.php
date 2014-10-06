@@ -5,6 +5,7 @@ class Radius_Radusergroup extends Eloquent{
 	 protected $table = 'radusergroup';
 	 public $incrementing = false;
 	 protected $primaryKey = null;
+	 protected $connection = 'radius';
 
  
 

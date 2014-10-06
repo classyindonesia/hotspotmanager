@@ -3,6 +3,7 @@ class Radius_Radcheck extends Eloquent{
 
 	 protected $guarded = array();
 	 protected $table = 'radcheck';
+	 protected $connection = 'radius';
 
 
 	 public function radusergroup(){

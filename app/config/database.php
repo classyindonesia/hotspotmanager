@@ -54,6 +54,18 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'radius',
+			'username'  => 'root',
+			'password'  => 'kediri',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+
+		'radius' => array(
+			'driver'    => 'mysql',
 			'host'      => '192.168.2.160',
 			'database'  => 'radius',
 			'username'  => 'radius',
@@ -62,6 +74,8 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+
+
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

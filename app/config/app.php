@@ -15,6 +15,7 @@ return array(
 
 	'debug' => true,
 
+	'cipher' => MCRYPT_RIJNDAEL_256,
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL

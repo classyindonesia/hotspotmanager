@@ -30,7 +30,13 @@ class UseraktifController extends BaseController {
 	public function kick_user(){
 		$ip = Input::get('ip');
 		$username = Input::get('username');
-     	$command = "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x 192.168.2.1:1700 disconnect 123";
+		$nas_ip = Input::get('nas_ip');
+		$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
+		$nas_secret = $get_nas_data->secret;
+
+
+
+     	$command = "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x $nas_ip:1700 disconnect $nas_secret";
       exec($command);		
 	}
 
