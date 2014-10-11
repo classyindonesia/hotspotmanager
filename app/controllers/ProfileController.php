@@ -36,5 +36,35 @@ class ProfileController extends BaseController {
 		 return 'ok';
 	}
 
+
+
+	public function update(){
+		$input1 = [
+		'groupname' => Input::get('nama'),
+		 'attribute' => 'Mikrotik-Rate-Limit',
+		 'op'		=> '==',
+		 'value'	=> Input::get('max_download').'k/'.Input::get('max_upload').'k',
+		 ];
+		$input2 = [
+		'groupname' => Input::get('nama'),
+		 'attribute' => 'Simultaneous-Use',
+		 'op'		=> '==',
+		 'value'	=> Input::get('max_login'),
+		 ];
+		 Radius_Radgroupreply::create($input1);
+		 Radius_Radgroupreply::create($input2);
+		 return 'ok';
+	}
+
+
+	public function del(){
+		$p = Radius_Radgroupreply::find(Input::get('id'));
+		$nm_p = $p->groupname;
+		$data = Radius_Radgroupreply::where('groupname', '=', $nm_p)->get();
+		foreach($data as $list){
+			$list->delete();
+		}
+	}
+
  
 }

@@ -8,14 +8,14 @@
 <div class="span7">
 <table class="table table-bordered">
 	<tr class="alert-info">
-		<td>No.</td>
+		<td width='5%'>No.</td>
 		<td>Nama Profil</td>
-		<td>max download</td>
-		<td>max upload</td>
-		<td>max login</td>
-		<td>action</td>
+		<td width='15%'>max download</td>
+		<td width='15%'>max upload</td>
+		<td width='10%'>max login</td>
+		<td width='10%'>action</td>
 	</tr>
-<?php $no=1; ?>
+<?php $no=$profile->getFrom(); ?>
 @foreach($profile as $list)
 
 <?php $max_login = Radius_Radgroupreply::where('groupname', '=', $list->groupname)
@@ -29,7 +29,7 @@
 		<td>{{ $val[0] }}</td>
 		<td>{{ $val[1] }}</td>
 		<td>{{ $max_login->value }}</td>
-		<td> @include('profile.action.edit') </td>
+		<td> @include('profile.action') </td>
 	</tr>
 <?php $no++; ?>
 @endforeach

@@ -8,15 +8,19 @@
     {{ HTML::script('assets/js/bootstrap/bootstrap.min.js') }}
     {{ HTML::script('assets/js/bootstrap/modal.js') }}
     {{ HTML::script('assets/js/bootstrap/tooltip.js') }}
+ 
 
       {{ HTML::style('assets/css/bootstrap/bootstrap.min.css') }}
       {{ HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') }}
       {{ HTML::style('assets/css/font-awesome/css/font-awesome.min.css') }}
  
+ 
 </head>
 <body>
 
-
+<script type="text/javascript">
+  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
