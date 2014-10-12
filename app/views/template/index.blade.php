@@ -11,9 +11,10 @@
  
 
       {{ HTML::style('assets/css/bootstrap/bootstrap.min.css') }}
-      {{ HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') }}
+      {{-- HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') --}}
       {{ HTML::style('assets/css/font-awesome/css/font-awesome.min.css') }}
- 
+       {{ HTML::style('assets/css/custom.css') }}
+
  
 </head>
 <body>

@@ -6,6 +6,7 @@ class Radius_Radusergroup extends Eloquent{
 	 public $incrementing = false;
 	 protected $primaryKey = null;
 	 protected $connection = 'radius';
+	 public $timestamps = false;
 
  
 
