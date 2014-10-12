@@ -10,6 +10,7 @@
 	<tr class="alert-info">
 		<td width='5%'>No.</td>
 		<td>Nama Profil</td>
+		<td width='10%'>Jml User</td>
 		<td width='15%'>max download</td>
 		<td width='15%'>max upload</td>
 		<td width='10%'>max login</td>
@@ -25,6 +26,7 @@
 	<tr>
 		<td>{{ $no }}</td>
 		<td>{{ $list->groupname }}</td>
+		<td>{{ Radius_Radusergroup::where('groupname', '=', $list->groupname)->count() }}</td>
 		<?php $val = explode("/", $list->value); ?>
 		<td>{{ $val[0] }}</td>
 		<td>{{ $val[1] }}</td>
