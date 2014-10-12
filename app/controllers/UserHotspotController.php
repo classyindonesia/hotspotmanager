@@ -59,6 +59,7 @@ class UserHotspotController extends BaseController {
 
 		$data_user = [
 		'username'	=> Input::get('username'),
+		'ref_user_level_id'	=> 2,
 		'password'	=> Hash::make(Input::get('password'))
 		];
 		Mst_User::create($data_user);
