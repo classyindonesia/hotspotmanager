@@ -4,14 +4,19 @@
 <h1> <i class='fa fa-signal'></i> M3K Hotspot</h1>
 <hr>
 
-<div class='col-md-4'>
-	<table class="table table-bordered table-hover">
+<div class='col-md-6'>
+	<table class="table">
 			<tr>
-				<td>Jumlah user Hotspot</td>
-				<td>{{ Radius_Radcheck::count() }}</td>
+				<td>User Hotspot</td>
+				<td width='10%'> <span class='label label-success'>{{ Radius_Radcheck::count() }}</span> </td>
 			</tr>
+
+			<tr>
+				<td>User Online</td>
+				<td width='10%'> <span class='label label-success'>{{ Radius_Radacct::where('acctstoptime', '=', NULL)->count() }}</span> </td>
+			</tr>
+
 	</table>
 </div>
  
-
 @stop

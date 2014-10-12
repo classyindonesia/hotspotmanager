@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('man3-System-Product-Name'),
+	'local' => array('man3-System-Product-Name', 'reka-desktop'),
 
 ));
 

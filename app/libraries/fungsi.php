@@ -8,7 +8,14 @@ public static function timer()
     return $time[0]+$time[1];
 }
 
-
+// Function to check response time
+public static function ping($host, $port) { 
+  $tB = microtime(true); 
+  $fP = fSockOpen($host, $port, $errno, $errstr, 10); 
+  if (!$fP) { return "down"; } 
+  $tA = microtime(true); 
+  return round((($tA - $tB) * 1000), 0)." ms"; 
+}
 
 public static function size($bytes){
         if ($bytes >= 1073741824){
