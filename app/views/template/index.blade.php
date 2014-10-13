@@ -44,19 +44,17 @@
 
 
  
-  <div class="container" style='margin-top: 70px;'>
+  <div class="container" style='margin-top: 60px;'>
   @include('template.komponen.nav_atas')
-  <div class='col-md-2' style='border-right:1px solid #aaa'>
-@include('template.komponen.nav_samping')    
-  </div>
-<div class='col-md-10'>
-@yield('main')
-</div>
 
-
+    <div class='col-md-12' style='border-bottom:1px solid #aaa;margin-bottom:1em;'>
+      @include('template.komponen.nav_samping')    
+    </div>
+    <div class='col-md-12'>
+      @yield('main')
+    </div>
  
-
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
  </body>

@@ -44,7 +44,7 @@
 
 <tr>
 	<td colspan="2" >
-		<button id='tambahkan' class="btn btn-info"> <i class='fa fa-floppy-o'></i> simpan</button>
+		<button id='tambahkan' class="btn btn-success"> <i class='fa fa-floppy-o'></i> simpan</button>
 	</td>
 </tr>
 

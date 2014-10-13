@@ -18,7 +18,7 @@ $data, '',
 <br>
 <input data-toggle='tooltip' title='keterangan' type='text' id="keterangan" class='form-control' placeholder='keterangan user...'   />
 <br>
-<button id='simpan' class='btn btn-info'><i class='fa fa-floppy-o'></i> simpan</button>
+<button id='simpan' class='btn btn-success'><i class='fa fa-floppy-o'></i> simpan</button>
 
 <script type="text/javascript">
 $('#username').keydown(function(e) {
