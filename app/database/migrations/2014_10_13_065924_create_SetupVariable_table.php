@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMstDataUserTable extends Migration {
+class CreateSetupVariableTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreateMstDataUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('mst_data_user', function(Blueprint $table)
+		Schema::create('setup_variable', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('username');
-			$table->string('nama');
+			$table->string('jenis');
+			$table->string('variable');
+			$table->string('value');
 			$table->string('keterangan');
 			$table->timestamps();
 		});
@@ -29,7 +30,7 @@ class CreateMstDataUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('mst_data_user');
+		Schema::drop('setup_variable');
 	}
 
 }

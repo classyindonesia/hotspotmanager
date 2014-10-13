@@ -37,7 +37,7 @@
 	<td>
 		Max login
 	</td>
-	<td><input class='form-control' style="width:30px;"  type='text' id='max_login'  /> 
+	<td><input class='form-control' style="width:70px;"  type='text' id='max_login'  /> 
 	</td>
 </tr>
 
@@ -51,6 +51,17 @@
 </table>
 
 <script>
+
+$('#nama').keydown(function(e) {
+
+        // alert (e.keyCode);
+
+	if (e.keyCode == 32) {
+		return false;
+	}
+});
+
+
      $('#max_download').keypress(function(e) {
             var a = [];
             var k = e.which;

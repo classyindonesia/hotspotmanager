@@ -1,13 +1,13 @@
 <h4>list user hotspot </h4>
 <hr>
 
-<div class="col-md-8" style="margin-left:0">
+<div class="col-md-12" style="margin-left:0">
 <table class="table table-bordered">
-	<tr class="alert alert-info">
+	<tr class="alert alert-success">
 		<td width='5%'>No</td>
 		<td>Username</td>
 		<td>group</td>
-		<td>status</td>
+		<td width='5%'>action</td>
 	</tr>
 	<?php $no=$userhotspot->getFrom(); ?>
 @foreach($userhotspot as $list) 
@@ -22,7 +22,7 @@
 		 @endif
 	 </td>
 	 <td>
-		-
+		@include('user_hotspot.action')
 	 </td>
 	</tr>
 	<?php $no++ ?>

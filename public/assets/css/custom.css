@@ -1,4 +1,21 @@
+/* customize nav samping */
+ .nav-pills > li.active > a {
+    background-color:#00ba8b;
+}
+
+ .nav-pills > li > a {
+    color:#038564;
+}
+ 
+.nav-pills>li.active>a:hover {
+    background-color:#038564;
+}
+/* end of customize nav samping */
+
+
+
 /* link */
+
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }    

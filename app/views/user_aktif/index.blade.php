@@ -6,9 +6,9 @@
 <h4>list user online </h4>
 <hr>
  
-<div class="span8" style="margin-left:0">
+<div class="col-md-12" style="margin-left:0">
 <table class="table table-bordered">
-	<tr class="alert alert-info" style='font-weight:bold;'>
+	<tr class="alert alert-success" style='font-weight:bold;'>
 		<td width='5%'>No.</td>
 		<td>Username</td>
 		<td width='15%'> MAC Address</td>

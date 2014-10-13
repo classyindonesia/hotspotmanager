@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 08, 2014 at 08:31 AM
--- Server version: 5.5.31
--- PHP Version: 5.4.4-14+deb7u5
+-- Inang: localhost
+-- Waktu pembuatan: 11 Okt 2014 pada 06.46
+-- Versi Server: 5.5.36-MariaDB-1
+-- Versi PHP: 5.5.9-1ubuntu4
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,35 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `radius`
+-- Basis data: `radius`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mst_user`
---
-
-CREATE TABLE IF NOT EXISTS `mst_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(150) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `mst_user`
---
-
-INSERT INTO `mst_user` (`id`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$2/6KXwB6k4bvxhEzJ9Do.OEn1oqQT943Vrv7IzMs9gYkf6i/zgRX6', '2014-04-05 00:00:00', '2014-04-05 00:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nas`
+-- Struktur dari tabel `nas`
 --
 
 CREATE TABLE IF NOT EXISTS `nas` (
@@ -60,19 +38,20 @@ CREATE TABLE IF NOT EXISTS `nas` (
   `description` varchar(200) DEFAULT 'RADIUS Client',
   PRIMARY KEY (`id`),
   KEY `nasname` (`nasname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `nas`
+-- Dumping data untuk tabel `nas`
 --
 
 INSERT INTO `nas` (`id`, `nasname`, `shortname`, `type`, `ports`, `secret`, `server`, `community`, `description`) VALUES
-(2, '192.168.2.1', 'mikrotik', 'other', 1813, '123', NULL, NULL, 'RADIUS Client');
+(2, '192.168.2.1', 'mikrotik', 'other', 1813, '123', NULL, NULL, 'RADIUS Client'),
+(3, '192.168.2.100', 'ubuntu', 'other', 1813, 'rahasia123', NULL, NULL, 'RADIUS Client');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radacct`
+-- Struktur dari tabel `radacct`
 --
 
 CREATE TABLE IF NOT EXISTS `radacct` (
@@ -111,26 +90,26 @@ CREATE TABLE IF NOT EXISTS `radacct` (
   KEY `acctstarttime` (`acctstarttime`),
   KEY `acctstoptime` (`acctstoptime`),
   KEY `nasipaddress` (`nasipaddress`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 --
--- Dumping data for table `radacct`
+-- Dumping data untuk tabel `radacct`
 --
 
 INSERT INTO `radacct` (`radacctid`, `acctsessionid`, `acctuniqueid`, `username`, `groupname`, `realm`, `nasipaddress`, `nasportid`, `nasporttype`, `acctstarttime`, `acctstoptime`, `acctsessiontime`, `acctauthentic`, `connectinfo_start`, `connectinfo_stop`, `acctinputoctets`, `acctoutputoctets`, `calledstationid`, `callingstationid`, `acctterminatecause`, `servicetype`, `framedprotocol`, `framedipaddress`, `acctstartdelay`, `acctstopdelay`, `xascendsessionsvrkey`) VALUES
-(1, '80600016', '7f332442f8497d13', 'reka', '', '', '192.168.2.1', '2153775126', 'Wireless-802.11', '2014-04-05 03:42:40', '2014-04-05 03:57:47', 906, '', '', '', 361956, 2253428, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(2, '80600017', '385b4d2e93283a70', 'reka', '', '', '192.168.2.1', '2153775127', 'Wireless-802.11', '2014-04-05 03:58:35', '2014-04-05 03:58:47', 13, '', '', '', 46363, 305668, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(3, '80600018', '56048b0d8c4719a2', 'reka', '', '', '192.168.2.1', '2153775128', 'Wireless-802.11', '2014-04-05 04:03:03', '2014-04-05 04:03:15', 12, '', '', '', 44854, 165601, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(4, '80600019', '14c0f3cc72cb8c53', 'reka', '', '', '192.168.2.1', '2153775129', 'Wireless-802.11', '2014-04-05 04:05:41', '2014-04-05 04:14:38', 537, '', '', '', 135459, 2747924, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(5, '8060001a', 'c2e756d62296bb36', 'reka', '', '', '192.168.2.1', '2153775130', 'Wireless-802.11', '2014-04-05 05:58:40', '2014-04-05 06:15:57', 1037, '', '', '', 257190, 1539657, 'hotspot1', '10:78:D2:95:B7:C2', 'Lost-Service', '', '', '192.168.5.254', 0, 0, ''),
-(6, '8060001b', '59894493529a5f8c', 'reka', '', '', '192.168.2.1', '2153775131', 'Wireless-802.11', '2014-04-05 06:19:04', '2014-04-05 06:29:20', 616, '', '', '', 93792, 1656205, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(7, '8060001d', 'a48f646eb7cd8a8b', 'reka', '', '', '192.168.2.1', '2153775133', 'Wireless-802.11', '2014-04-05 08:12:16', '2014-04-05 08:12:35', 19, '', '', '', 78228, 498745, 'hotspot1', '10:78:D2:95:B7:C2', 'Admin-Reset', '', '', '192.168.5.254', 0, 0, ''),
-(8, '8060001e', '9f21b424d572fe82', 'reka', '', '', '192.168.2.1', '2153775134', 'Wireless-802.11', '2014-04-05 08:21:05', '2014-04-05 08:41:37', 1233, '', '', '', 258610, 1246314, 'hotspot1', '10:78:D2:95:B7:C2', 'Lost-Service', '', '', '192.168.5.254', 0, 0, '');
+(38, '80600013', '2fb7768b361d8b5e', 'reka', '', '', '192.168.2.1', '2153775123', 'Wireless-802.11', '2014-10-07 01:02:03', '2014-10-07 01:11:56', 593, '', '', '', 12531, 322610, 'hotspot1', '00:1D:72:3A:9E:E6', 'Admin-Reset', '', '', '192.168.100.254', 0, 0, ''),
+(39, '80600014', 'fb4e2c559c374131', 'reka', '', '', '192.168.2.1', '2153775124', 'Wireless-802.11', '2014-10-07 01:12:14', '2014-10-07 01:38:15', 1561, '', '', '', 3255592, 19020730, 'hotspot1', '00:1D:72:3A:9E:E6', 'Lost-Service', '', '', '192.168.100.254', 0, 0, ''),
+(40, '80600016', '7f332442f8497d13', 'reka', '', '', '192.168.2.1', '2153775126', 'Wireless-802.11', '2014-10-07 01:45:00', '2014-10-07 02:23:58', 2339, '', '', '', 35047998, 2368892951, 'hotspot1', '10:BF:48:36:FF:50', 'Admin-Reset', '', '', '192.168.100.253', 0, 0, ''),
+(41, '80600017', '385b4d2e93283a70', 'reka', '', '', '192.168.2.1', '2153775127', 'Wireless-802.11', '2014-10-07 02:24:14', '2014-10-07 02:36:50', 756, '', '', '', 18266774, 2382116665, 'hotspot1', '10:BF:48:36:FF:50', 'Lost-Service', '', '', '192.168.100.253', 0, 0, ''),
+(42, '80600018', '56048b0d8c4719a2', 'reka', '', '', '192.168.2.1', '2153775128', 'Wireless-802.11', '2014-10-07 03:23:33', '2014-10-07 04:55:05', 5492, '', '', '', 28544838, 1673847560, 'hotspot1', '10:BF:48:36:FF:50', 'Lost-Service', '', '', '192.168.100.253', 0, 0, ''),
+(43, '80600019', '14c0f3cc72cb8c53', 'reka', '', '', '192.168.2.1', '2153775129', 'Wireless-802.11', '2014-10-07 04:59:40', '2014-10-07 05:00:16', 36, '', '', '', 125475, 676262, 'hotspot1', '10:BF:48:36:FF:50', 'Admin-Reset', '', '', '192.168.100.253', 0, 0, ''),
+(44, '8060001f', 'f268e0bcfd5d8cb0', 'reka', '', '', '192.168.2.1', '2153775135', 'Wireless-802.11', '2014-10-07 05:09:53', '2014-10-07 05:18:16', 503, '', '', '', 1994792, 102309891, 'hotspot1', '10:BF:48:36:FF:50', 'Admin-Reset', '', '', '192.168.100.253', 0, 0, ''),
+(45, '80600020', '6a3c680e98b8fab3', 'reka', '', '', '192.168.2.1', '2153775136', 'Wireless-802.11', '2014-10-07 05:18:35', '2014-10-07 07:20:30', 7315, '', '', '', 1924475, 63241302, 'hotspot1', '10:BF:48:36:FF:50', 'Lost-Service', '', '', '192.168.100.253', 0, 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radcheck`
+-- Struktur dari tabel `radcheck`
 --
 
 CREATE TABLE IF NOT EXISTS `radcheck` (
@@ -141,19 +120,19 @@ CREATE TABLE IF NOT EXISTS `radcheck` (
   `value` varchar(253) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `username` (`username`(32))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `radcheck`
+-- Dumping data untuk tabel `radcheck`
 --
 
 INSERT INTO `radcheck` (`id`, `username`, `attribute`, `op`, `value`) VALUES
-(2, 'reka', 'User-Password', '==', 'reka');
+(2, 'reka', 'Cleartext-Password', ':=', 'reka');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radgroupcheck`
+-- Struktur dari tabel `radgroupcheck`
 --
 
 CREATE TABLE IF NOT EXISTS `radgroupcheck` (
@@ -169,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `radgroupcheck` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radgroupreply`
+-- Struktur dari tabel `radgroupreply`
 --
 
 CREATE TABLE IF NOT EXISTS `radgroupreply` (
@@ -180,22 +159,22 @@ CREATE TABLE IF NOT EXISTS `radgroupreply` (
   `value` varchar(253) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `groupname` (`groupname`(32))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `radgroupreply`
+-- Dumping data untuk tabel `radgroupreply`
 --
 
 INSERT INTO `radgroupreply` (`id`, `groupname`, `attribute`, `op`, `value`) VALUES
-(1, 'kusus', 'Mikrotik-Rate-Limit', '==', '512k/512k'),
+(1, 'kusus', 'Mikrotik-Rate-Limit', '==', '0/0'),
 (2, 'kusus', 'Simultaneous-Use', '==', '1'),
-(3, 'siswa', 'Mikrotik-Rate-Limit', '==', '512k/512k'),
-(4, 'siswa', 'Simultaneous-Use', '==', '1');
+(5, 'guru', 'Mikrotik-Rate-Limit', '==', '1024k/1024k'),
+(6, 'guru', 'Simultaneous-Use', '==', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radpostauth`
+-- Struktur dari tabel `radpostauth`
 --
 
 CREATE TABLE IF NOT EXISTS `radpostauth` (
@@ -205,12 +184,28 @@ CREATE TABLE IF NOT EXISTS `radpostauth` (
   `reply` varchar(32) NOT NULL DEFAULT '',
   `authdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data untuk tabel `radpostauth`
+--
+
+INSERT INTO `radpostauth` (`id`, `username`, `pass`, `reply`, `authdate`) VALUES
+(1, 'reka', 'reka', 'Access-Accept', '2014-04-21 02:32:59'),
+(2, 'reka', 'reka', 'Access-Accept', '2014-04-21 02:41:20'),
+(3, 'reka', 'reka', 'Access-Accept', '2014-04-21 07:33:58'),
+(4, 'paijo', 'paijo', 'Access-Accept', '2014-04-21 07:34:45'),
+(5, 'reka', '0xbd51d20b12fdf0f5b8fbd638bb97a1bc0c', 'Access-Accept', '2014-04-21 07:35:36'),
+(6, 'reka', '0x42291def99643434ff4e4ae48bc83f1cd8', 'Access-Accept', '2014-04-21 07:41:10'),
+(7, 'paijo', '0x1ebb69156c38be8224bb3151b5d93081d3', 'Access-Accept', '2014-04-21 07:43:14'),
+(8, 'paijo', '0x6892e8ce0eee09c255819aeca2b6207e6d', 'Access-Accept', '2014-04-21 07:45:29'),
+(9, 'reka', '0xf095d07b634c9d16beb900b4acb5696b41', 'Access-Accept', '2014-04-21 07:46:15'),
+(10, 'reka', '0x902513f59ff6fbc290d6bcd8a1e06fcef6', 'Access-Accept', '2014-04-21 07:48:33');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radreply`
+-- Struktur dari tabel `radreply`
 --
 
 CREATE TABLE IF NOT EXISTS `radreply` (
@@ -226,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `radreply` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `radusergroup`
+-- Struktur dari tabel `radusergroup`
 --
 
 CREATE TABLE IF NOT EXISTS `radusergroup` (
@@ -237,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `radusergroup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `radusergroup`
+-- Dumping data untuk tabel `radusergroup`
 --
 
 INSERT INTO `radusergroup` (`username`, `groupname`, `priority`) VALUES
