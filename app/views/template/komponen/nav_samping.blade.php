@@ -3,6 +3,7 @@
         <li @if(isset($user_hotspot)) class="active" @endif ><a href="{{ URL::to('user_hotspot') }}"> <i class='fa fa-th'></i> User Hotspot</a></li>
         <li @if(isset($user_aktif)) class="active" @endif ><a href="{{ URL::to('user_aktif') }}"> <i class='fa fa-group'></i> User Aktif</a></li>
         <li @if(isset($profile)) class="active" @endif ><a href="{{ URL::to('profile') }}"> <i class='fa fa-th-list'></i> Profile Template</a></li>
+        <li @if(isset($config)) class="active" @endif ><a href="{{ URL::to('config') }}"> <i class='fa fa-wrench'></i> Config</a></li>
 
       </ul>
  

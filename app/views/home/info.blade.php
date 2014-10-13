@@ -1,10 +1,6 @@
 <div class='col-md-6'>
 	<table class="table">
-			<tr>
-				<td width='5%'> 
-					<i style='font-size: 30px;' data-toggle='tooltip' title='nama tempat/instansi' class='fa fa-home'></i> </td>
-				<td> {{ Fungsi::setup_variable('nama_tempat') }}  </td>
-			</tr>
+ 
 
 			<tr>
 				<td> 
