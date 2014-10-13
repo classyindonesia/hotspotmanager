@@ -3,6 +3,8 @@
     background-color:#00ba8b;
 }
 
+
+
  .nav-pills > li > a {
     color:#038564;
 }
@@ -110,7 +112,7 @@
 @link-color-hover: lighten(@link-color, 90%);
  
 a {
-  color:  @link-color;
+  color:  #038564;
   text-decoration: none;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -121,6 +123,7 @@ a {
  
 }
  a:hover {
-    color: @link-color-hover;
+    color: #045843;
      text-decoration: none;
    }
+ 

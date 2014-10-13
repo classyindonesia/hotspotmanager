@@ -1,9 +1,9 @@
 <div class='col-md-6'>
-	<table class="table">
+	<table class="table table-bordered">
  
 
 			<tr>
-				<td> 
+				<td width='4%'> 
 					<i style='font-size: 30px;' data-toggle='tooltip' title='alamat' class='fa fa-location-arrow'></i> </td>
 				<td> {{ Fungsi::setup_variable('alamat') }}  </td>				
   			</tr>
