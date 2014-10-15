@@ -36,19 +36,13 @@
   </div>
 </div>
 
-
  
-
-
-
-
-
  
-  <div class="container" style='margin-top: 60px;'>
+  <div class="container" style='margin-top: 55px;'>
   @include('template.komponen.nav_atas')
 
     <div class='col-md-12' style='border-bottom:1px solid #aaa;margin-bottom:1em;'>
-      @include('template.komponen.nav_samping')    
+      @include('template.komponen.menu_atas')    
     </div>
     <div class='col-md-12'>
       @yield('main')

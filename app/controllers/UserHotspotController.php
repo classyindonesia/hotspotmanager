@@ -19,10 +19,10 @@ class UserHotspotController extends BaseController {
 	}
 
 	public function index(){
-		$userhotspot = Radius_Radcheck::with('radusergroup')
-		->groupBy('username')
-		->orderBy('id','DESC')
+		$userhotspot = Mst_Data_User::with('radusergroup')
+		->orderBy('id', 'DESC')
 		->paginate(10);
+
 		return View::make('user_hotspot.index')
 		->with('userhotspot', $userhotspot)
 		->with('user_hotspot_home', true);
@@ -90,16 +90,34 @@ class UserHotspotController extends BaseController {
 
 	public function del(){	
 
-		$data_radcheck = Radius_Radcheck::find(Input::get('id'));
-		$data_mst_user = Mst_User::where('username', '=', $data_radcheck->username)->first();
-		$mst_data_user = Mst_Data_User::where('username', '=', $data_radcheck->username)->first();
-		$data_radusergroup = Radius_Radusergroup::where('username', '=', $data_radcheck->username)->first();
+		$mst_data_user = Mst_Data_User::find(Input::get('id'));
+		$data_radcheck = Radius_Radcheck::where('username', '=', $mst_data_user->username)->first();
+		$data_mst_user = Mst_User::where('username', '=', $mst_data_user->username)->first();		
+		$data_radusergroup = Radius_Radusergroup::where('username', '=', $mst_data_user->username)->first();
 		if(count($data_mst_user)>0) $data_mst_user->delete();
 		if(count($mst_data_user)>0) $mst_data_user->delete();
 		if(count($data_radusergroup)>0) $data_radusergroup->delete();
 		if(count($data_radcheck)>0) $data_radcheck->delete();
 
 		return 'ok';
+
+	}
+
+
+	public function test_radius(){
+
+		$ip = Input::get('ip');
+		$username = Input::get('username');
+		$nas_ip = Input::get('nas_ip');
+		$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
+		$nas_secret = $get_nas_data->secret;
+ 
+ 
+SSH::run(array(
+    'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret,
+ 
+));
+
 
 	}
 

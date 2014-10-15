@@ -19,6 +19,13 @@
         		<br> 
         		Profiles</a>
         </li>
+        <li style='text-align:center;' @if(isset($nas)) class="active" @endif >
+            <a href="{{ URL::to('nas') }}">
+             <i class='fa fa-wifi'></i> 
+            <br> NAS</a>
+        </li>
+
+
         <li style='text-align:center;' @if(isset($config)) class="active" @endif >
         	<a href="{{ URL::to('config') }}">
         	 <i class='fa fa-wrench'></i> 

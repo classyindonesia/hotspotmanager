@@ -11,3 +11,5 @@
 |
 */
 
+/* command tambahan */
+//Artisan::add(new migrasi_template); 

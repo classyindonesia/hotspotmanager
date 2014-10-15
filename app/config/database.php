@@ -74,7 +74,16 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-
+		'yfi' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'yfi',
+			'username'  => 'homestead',
+			'password'  => 'secret',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
 
 
 		'pgsql' => array(
