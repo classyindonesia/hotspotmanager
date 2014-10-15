@@ -2,18 +2,9 @@
 
 class UserHotspotController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+private $output;
+ 
+
 	public function __construct(){
 		View::share('user_hotspot', true);
 	}
@@ -106,18 +97,29 @@ class UserHotspotController extends BaseController {
 
 	public function test_radius(){
 
-		$ip = Input::get('ip');
-		$username = Input::get('username');
-		$nas_ip = Input::get('nas_ip');
-		$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
-		$nas_secret = $get_nas_data->secret;
- 
- 
-SSH::run(array(
-    'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret,
- 
-));
+ 		$username = Input::get('username');
+ 		$u = Radius_Radcheck::where('username', '=', Input::get('username'))
+ 		->where('attribute', '=', 'Cleartext-Password')
+ 		->first();
+ 		$pass = $u->value;
+  $command = ['echo User-Name='.$username.',User-Password="'.$pass.'"|/usr/bin/radclient -x  127.0.0.1 auth m4nd1r1ajna'];
+SSH::run($command, function($line){
+	 $this->output = $line.PHP_EOL.'\n';
+});
+$hasil_jadi = '';
+$hasil = explode(' ', $this->output);
+for($i=0;$i<=count($hasil)-1;$i++){
+	if($hasil[$i] == 'Access-Accept'){
+		$hasil_jadi = 'ok';
+	}
+}
+if($hasil_jadi == 'ok') {
+	$hasil_jadi = '<span class="text-success">Radis Server Repply : OK!</span>';
+}else{
+	$hasil_jadi = '<span class="text-danger">Radis Server Not Responding!</span>';	
+}
 
+ return 'User-Name : '.$username.' <hr><b>'.$hasil_jadi.'</b>';
 
 	}
 
