@@ -10,7 +10,7 @@
 			<th width='10%'>Data Tx</th>
 			<th width='10%'>Data Rx</th>
 			<th width='10%'>Data Total</th>
-			<th width='5%'>Action</th>
+			<th width='8%'>Action</th>
 		</tr>
 	</thead>
 	<tbody>

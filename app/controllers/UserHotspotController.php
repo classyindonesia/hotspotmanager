@@ -102,7 +102,7 @@ private $output;
  		->where('attribute', '=', 'Cleartext-Password')
  		->first();
  		$pass = $u->value;
-  $command = ['echo User-Name='.$username.',User-Password="'.$pass.'"|/usr/bin/radclient -x  127.0.0.1 auth m4nd1r1ajna'];
+  $command = ['echo User-Name='.$username.',User-Password="'.$pass.'"|/usr/bin/radclient -x  127.0.0.1 auth '.Fungsi::setup_variable("rad_secret_localhost")];
 SSH::run($command, function($line){
 	 $this->output = $line.PHP_EOL.'\n';
 });
@@ -114,9 +114,9 @@ for($i=0;$i<=count($hasil)-1;$i++){
 	}
 }
 if($hasil_jadi == 'ok') {
-	$hasil_jadi = '<span class="text-success">Radis Server Repply : OK!</span>';
+	$hasil_jadi = '<span class="text-success">Radius Server Repply : OK!</span>';
 }else{
-	$hasil_jadi = '<span class="text-danger">Radis Server Not Responding!</span>';	
+	$hasil_jadi = '<span class="text-danger">Radius Server Not Responding!</span>';	
 }
 
  return 'User-Name : '.$username.' <hr><b>'.$hasil_jadi.'</b>';

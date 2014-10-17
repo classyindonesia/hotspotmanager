@@ -41,6 +41,41 @@
 	</tr>
 
 
+	<tr valign='center'>
+		<td width='140px'>IP Server Radius</td>
+		<td> 
+			<input class='form-control' id='var5' type='text' value='{{ Fungsi::setup_variable("ip_radius_server") }}'>
+  	</td>
+		<td width='15%'> <button class='btn btn-success' id='update5'>update</button>
+			 <i data-toggle='tooltip' title='untuk kick user/ agar bs dipisah dgn radius server' class='fa fa-question-circle'></i>
+
+		 </td>
+	</tr>
+
+
+	<tr valign='center'>
+		<td width='140px'>Password root Server Radius</td>
+		<td> 
+			<input class='form-control' id='var6' type='password' value='{{ Fungsi::setup_variable("password_root_radius") }}'>
+  	</td>
+		<td width='15%'> <button class='btn btn-success' id='update6'>update</button> 
+			 <i data-toggle='tooltip' title='untuk kick user/ agar bs dipisah dgn radius server' class='fa fa-question-circle'></i>
+
+		</td>
+	</tr>
+
+
+	<tr valign='center'>
+		<td width='140px'>Radius Secret [untuk localhost]</td>
+		<td> 
+			<input class='form-control' id='var7' type='text' value='{{ Fungsi::setup_variable("rad_secret_localhost") }}'>
+  	</td>
+		<td width='15%'> <button class='btn btn-success' id='update7'>update</button>
+			 <i data-toggle='tooltip' title='radius secret yg ada di /etc/freeradius/clients.conf' class='fa fa-question-circle'></i>
+		 </td>
+	</tr>
+
+
 
 
 </table>

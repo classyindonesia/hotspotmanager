@@ -21,7 +21,7 @@
         </li>
         <li style='text-align:center;' @if(isset($nas)) class="active" @endif >
             <a href="{{ URL::to('nas') }}">
-             <i class='fa fa-wifi'></i> 
+             <i class='fa fa-tasks'></i> 
             <br> NAS</a>
         </li>
 

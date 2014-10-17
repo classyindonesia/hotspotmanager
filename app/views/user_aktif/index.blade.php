@@ -1,10 +1,10 @@
 @extends('template.index')
 @section('main')
 
+<span class='label label-success pull-right'>User online : {{ count($user_aktif) }}</span>
 
   
-<h4>list user online </h4>
-<hr>
+<h3>User Online </h3>
  
 <div class="col-md-12" style="margin-left:0">
 <table class="table table-bordered">
@@ -19,7 +19,7 @@
  		<td width='5%'>action</td>
 	</tr>
 	<?php $no=1; ?>
-@foreach(Radius_Radacct::where('acctstoptime', '=', NULL)->get() as $list) 
+@foreach($user_aktif as $list) 
 	<tr>
 		<td>{{ $no }}</td>
 		<td>{{ $list->username }}</td>

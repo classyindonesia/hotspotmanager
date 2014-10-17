@@ -38,4 +38,13 @@ $('#update4').click(function(){
 	update_variable($('#var4').val(), 'alamat_email');
 });
 
+$('#update5').click(function(){
+	update_variable($('#var5').val(), 'ip_radius_server');
+});
+$('#update6').click(function(){
+	update_variable($('#var6').val(), 'password_root_radius');
+});
+$('#update7').click(function(){
+	update_variable($('#var7').val(), 'rad_secret_localhost');
+});
 </script>

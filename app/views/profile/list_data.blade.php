@@ -1,6 +1,5 @@
-<h4>profile template</h4>
-<hr>
-<div class="span7">
+<h3>Profile Template</h3>
+ <div class="span7">
 <table class="table table-bordered">
 	<tr class="alert-success">
 		<td width='5%'>No.</td>

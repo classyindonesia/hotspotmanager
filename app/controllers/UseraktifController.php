@@ -23,7 +23,8 @@ class UseraktifController extends BaseController {
 
 
 	public function index(){
-		return View::make('user_aktif.index');
+		$user_aktif = Radius_Radacct::where('acctstoptime', '=', NULL)->get();
+		return View::make('user_aktif.index', compact('user_aktif'));
 	}
 
 

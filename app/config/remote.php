@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '192.168.2.153',
+			'host'      => Fungsi::setup_variable("ip_radius_server"),
 			'username'  => 'root',
-			'password'  => 'kediri',
-			'key'       => '',
-			'keyphrase' => '', //'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrmgqcIFEv4ABY14DKDdsl/4bENxiHRq+IQFDXbjwiWOotUaG5PefVl+PER7orzUvKG9QTZ96JwjUuDa0O+v53ihI2yoeI/7goMZgdUtYytIR84aKYqhXa4uLPUtkkfrh/Rchk992CgFb9zw1/wHRuz/BZAxm58t76kDWuwUvSte0FWocv0cVYRHhGFRLg9+W4PBcn1dQIQ8Vzp39KI5vRwOHpd/CxIIKyg1bMnLyTU93hKSnAHpiD9trsfDjqF2Rts9+g/xlVL3tEu1M7id51U/xdcKwE6M4WGaTmBLH335/cuSITCtwyZaJCYVE+0QbM2tXs8x+JyFpaI+l2Rgc9 man3@man3-System-Product-Name',
-			'root'      => '/root/',
+			'password'  => Fungsi::setup_variable("password_root_radius"),
+			'key'       =>  '',
+			'keyphrase' =>  '',
+			'root'      => '/',
 		),
 
 	),

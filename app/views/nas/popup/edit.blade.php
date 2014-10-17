@@ -13,7 +13,11 @@
 
 <input value='{{ $nas->secret }}' data-toggle='tooltip' title='Secret' type='password' id="secret" class='form-control' placeholder='Secret...'   />
 <br>
+<input value='{{ $nas->user_mikrotik }}' data-toggle='tooltip' title='User Mikrotik' type='text' id="user_mikrotik" class='form-control' placeholder='user mikrotik...'   />
+<br>
 
+<input value='{{ $nas->password_mikrotik }}' data-toggle='tooltip' title='Password Mikrotik' type='password' id="password_mikrotik" class='form-control' placeholder='password mikrotik...'   />
+<br>
 <button id='simpan' class='btn btn-success'><i class='fa fa-floppy-o'></i> simpan</button>
 
 
@@ -39,6 +43,9 @@ $('#port').keydown(function(e) {
 
 
 $('#simpan').click(function(){
+	user_mikrotik = $('#user_mikrotik').val();
+	password_mikrotik = $('#password_mikrotik').val();
+
 	nama = $('#nama').val();
 	ip = $('#ip').val();
 	port = $('#port').val();
@@ -48,9 +55,19 @@ if(nama == '' || ip == '' || port == '' || secret == ''){
 	return false;
 }
 
+form_data = {
+	nama : nama, 
+	ip : ip, 
+	port : port, 
+	secret : secret, 
+	id : '{{ $nas->id }}',
+	user_mikrotik : user_mikrotik,
+	password_mikrotik : password_mikrotik
+}
+
 $.ajax({
 	url : '{{ URL::to("nas/update") }}',
-	data : {nama : nama, ip : ip, port : port, secret : secret, id : '{{ $nas->id }}'},
+	data : form_data,
 	type : 'post',
 	error : function(err){
 		alert('error! terjadi kesalahan pada sisi server!');

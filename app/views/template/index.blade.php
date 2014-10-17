@@ -35,8 +35,6 @@
     </div>
   </div>
 </div>
-
- 
  
   <div class="container" style='margin-top: 55px;'>
   @include('template.komponen.nav_atas')
@@ -48,6 +46,8 @@
       @yield('main')
     </div>
  
+
+
 </div> <!-- /container -->
 
 
