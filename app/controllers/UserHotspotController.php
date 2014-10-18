@@ -10,14 +10,41 @@ private $output;
 	}
 
 	public function index(){
-		$userhotspot = Mst_Data_User::with('radusergroup')
-		->orderBy('id', 'DESC')
-		->paginate(10);
+		if(Session::has('pencarian')){
+			$userhotspot = Mst_Data_User::where('nama', 'like', '%'.Session::get('pencarian').'%')->with('radusergroup')
+			->orderBy('id', 'DESC')
+			->paginate(10);
+
+			if(count($userhotspot)<=0){
+				$userhotspot = Mst_Data_User::where('username', 'like', '%'.Session::get('pencarian').'%')->with('radusergroup')
+				->orderBy('id', 'DESC')
+				->paginate(10);
+
+			}
+
+		}else{
+			$userhotspot = Mst_Data_User::with('radusergroup')
+			->orderBy('id', 'DESC')
+			->paginate(10);			
+		}
 
 		return View::make('user_hotspot.index')
 		->with('userhotspot', $userhotspot)
 		->with('user_hotspot_home', true);
 	}
+
+
+	public function submit_search(){
+		if(Input::get('pencarian')){
+			if(Input::get('pencarian') != ''){
+				Session::put('pencarian', Input::get('pencarian'));
+			}
+		}else{
+			Session::forget('pencarian');
+		}
+		return 'ok';
+	}
+
 
 	public function add(){
 		$data = ['' => '-pilih profile template-'];
@@ -121,6 +148,92 @@ if($hasil_jadi == 'ok') {
 
  return 'User-Name : '.$username.' <hr><b>'.$hasil_jadi.'</b>';
 
+	}
+
+
+	public function import(){
+		$data = ['' => '-pilih profile template-'];
+		$group = Radius_Radgroupreply::select(DB::raw('distinct groupname as id'))->get();
+		foreach($group as $list){
+			$data[$list->id] = $list->id;
+		}		
+		return View::make('user_hotspot.popup.import', compact('data'));
+	}
+
+	public function do_import(){
+        if(!file_exists($_FILES['userfile']['tmp_name']) || !is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+        Session::flash('pesan', '<span class="alert alert-danger"> error! no file! </span>');
+        return Redirect::to("user_hotspot");      
+        }else{
+            $file = $_FILES['userfile']['tmp_name'];
+                $data = new Reader($file); 
+                $a = $data->rowcount($sheet_index=0); 
+				//$data = new Reader($file);                 
+             for($i=1;$i<=$a;$i++){
+                if($i != 1 && $i != 2){                    
+                      $no  = trim($data->val($i, 'B')); //username
+                      $no2 = trim($data->val($i, 'C')); // Nama User
+                      $no3 = trim($data->val($i, 'D')); // Password
+                       if($no != NULL && $no2 != NULL){
+
+
+
+		$user = Radius_Radcheck::where('username', '=', Input::get('username'))->first();
+		
+		if(count($user) <= 0){
+
+			if(empty($no3)){
+				$password = $no;
+			}else{
+				$password = $no3;
+			}
+
+			/* insert to radcheck */
+			$data_radcheck = [
+				'username' => $no,
+				'attribute'	=> 'Cleartext-Password',
+				'op'		=> ':=',
+				'value'	=> $password
+			];
+			Radius_Radcheck::create($data_radcheck);
+			/* end of insert to radcheck */
+
+			/* insert to radusergroup */
+			$data_radusergroup = [
+				'username' => $no,
+				'groupname'	=> Input::get('profile'),
+				'priority'	=> 1
+			];
+			Radius_Radusergroup::create($data_radusergroup);
+			/* end of insert to radusergroup */
+
+
+			$data_user = [
+			'username'	=> $no,
+			'ref_user_level_id'	=> 2,
+			'password'	=> Hash::make($password)
+			];
+			Mst_User::create($data_user);
+
+
+			$mst_data_user = [
+			'username'	=> $no,
+			'nama'	=> $no2,
+			'keterangan'	=> ''
+			];
+			Mst_Data_User::create($mst_data_user);
+		}
+
+
+
+
+
+                      }
+                }
+            }
+            Session::flash('pesan', '<span class="alert alert-success"> berhasil export </span>');
+        return Redirect::to('user_hotspot');
+        }		
 	}
 
 

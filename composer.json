@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"bravo3/ssh": "dev-master"
+		"php-excel-reader/spreadsheet-reader": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

@@ -35,14 +35,16 @@ class UseraktifController extends BaseController {
 		$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
 		$nas_secret = $get_nas_data->secret;
  
- 
-SSH::run(array(
-    'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret,
- 
-));
- 
-     	//$command = 'ssh root@192.168.2.153 "echo User-Name=$username,Framed-IP-Address=$ip|/usr/bin/radclient -x $nas_ip:1700 disconnect $nas_secret"';
-      //exec($command);		
+		SSH::run(array(
+		    'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret,
+		 
+		));
 	}
+
+
+	public function update_time_refresh(){
+		Session::put('time_refresh', Input::get('time_refresh'));
+	}
+
 
 }
