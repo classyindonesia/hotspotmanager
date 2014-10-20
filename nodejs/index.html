@@ -1,0 +1,16 @@
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript">// <![CDATA[
+            var socket = io.connect('http://127.0.0.1:5000/');
+ 
+            //socket.on('connect', function(data){
+            //    socket.emit('subscribe', {channel:'score.update'});
+            //});
+ 
+            socket.on('news', function (data) {
+                //Do something with data
+                  //console.log('Score updated: ', data);
+                  socket.emit('my other event', { my: 'data' });
+            });
+ 
+// ]]></script>
+d asdas
