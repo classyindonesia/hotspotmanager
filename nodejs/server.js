@@ -12,7 +12,7 @@ server.listen(5000, 'localhost');
  
 io.listen(server).on('connection', function(client) {
 
-  client.on('sip: ', function (data) {
+  client.on('pesan: ', function (data) {
     console.log(data);
   });
 

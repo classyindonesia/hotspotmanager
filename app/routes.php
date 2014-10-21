@@ -6,7 +6,9 @@ require __DIR__.'/routes/user_aktif.php';
 require __DIR__.'/routes/user_hotspot.php'; 
 require __DIR__.'/routes/config.php'; 
 require __DIR__.'/routes/nas.php'; 
- require __DIR__.'/routes/config_user.php'; 
+require __DIR__.'/routes/config_user.php'; 
+require __DIR__.'/routes/log_usage.php'; 
+require __DIR__.'/routes/obrolan.php'; 
 
 
 if (Request::is('admin/*') || Request::is('admin')){
