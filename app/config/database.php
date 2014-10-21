@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => $_SERVER['DB_HOST'],
-			'database'  => $_SERVER['DB_NAME'],
-			'username'  => $_SERVER['DB_USERNAME'],
-			'password'  => $_SERVER['DB_PASSWORD'],
+			'host'      => $_ENV['DB_HOST'],
+			'database'  => $_ENV['DB_NAME'],
+			'username'  => $_ENV['DB_USERNAME'],
+			'password'  => $_ENV['DB_PASSWORD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -66,10 +66,10 @@ return array(
 
 		'radius' => array(
 			'driver'    => 'mysql',
-			'host'      => $_SERVER['DB_RADIUS_HOST'],
-			'database'  => $_SERVER['DB_RADIUS_NAME'],
-			'username'  => $_SERVER['DB_RADIUS_USERNAME'],
-			'password'  => $_SERVER['DB_RADIUS_PASSWORD'],
+			'host'      => $_ENV['DB_RADIUS_HOST'],
+			'database'  => $_ENV['DB_RADIUS_NAME'],
+			'username'  => $_ENV['DB_RADIUS_USERNAME'],
+			'password'  => $_ENV['DB_RADIUS_PASSWORD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
