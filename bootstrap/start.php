@@ -24,11 +24,10 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment(function(){
+	return getenv('APP_ENV') ? 'production'  : 'local';
+});
 
-	'local' => array('man3-System-Product-Name', 'reka-desktop'),
-
-));
 
 /*
 |--------------------------------------------------------------------------

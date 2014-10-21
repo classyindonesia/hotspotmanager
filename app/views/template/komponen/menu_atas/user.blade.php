@@ -5,11 +5,7 @@
         </li>
  
 
-        <li style='text-align:center;' @if(isset($config_user)) class="active" @endif >
-            <a href="{{ URL::to('config_user') }}">
-             <i class='fa fa-cogs'></i> 
-            <br>Profile</a>
-        </li> 
+
  
 
         <li style='text-align:center;' @if(isset($log_usage)) class="active" @endif >
@@ -24,6 +20,13 @@
              <i class='fa fa-comments'></i> 
             <br>Obrolan</a>
         </li> 
+
+        <li style='text-align:center;' @if(isset($config_user)) class="active" @endif >
+            <a href="{{ URL::to('config_user') }}">
+             <i class='fa fa-cogs'></i> 
+            <br>Profile</a>
+        </li> 
+
 
        </ul>
  

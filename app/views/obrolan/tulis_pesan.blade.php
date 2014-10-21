@@ -1,3 +1,4 @@
+<i style='font-size: 20px;display:none' class='fa fa-spinner fa-spin pull-right' id='loading_kirim'></i>
 <h4>Tulis Pesan</h4>
 
 <hr>
@@ -22,6 +23,7 @@ $("#pesan").keypress(function(e) {
         }
 
         $('#pesan').attr('readonly', '0');
+        $('#loading_kirim').fadeIn();
 
         $.ajax({
         	url : '{{ URL::route("obrolan_insert") }}',
@@ -30,10 +32,12 @@ $("#pesan").keypress(function(e) {
         	error :function(err){
         		alert('error! terjadi kesalahan pada sisi server!');
         		$('#pesan').removeAttr('readonly');
+                $('#loading_kirim').fadeOut();
         	},
         	success:function(ok){
         		$('#pesan').val('');
         		$('#pesan').removeAttr('readonly');
+                $('#loading_kirim').fadeOut();
         	}
         })
 
