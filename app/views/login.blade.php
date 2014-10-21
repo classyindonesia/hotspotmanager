@@ -66,7 +66,7 @@
  
     </div>
 
-
+{{ getenv('DB_HOST') }}
  
 
 
