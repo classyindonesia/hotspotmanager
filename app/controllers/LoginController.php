@@ -17,7 +17,6 @@ class LoginController extends BaseController {
 
 
 	public function index(){
-		dd(App::detectEnvironment());
 		return View::make('login');
 	}
 
