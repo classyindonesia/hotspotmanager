@@ -21,7 +21,13 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title">Matrix Hotspot</div>
+                        <center>  
+                            <img src="{{ URL::to("") }}/assets/img/logo_man3.png" style='width:50px;height:50px;' />
+                        </center>
+                        
+                        <center> <h2>MATRIX HOTSPOT</h2> </center>
+
+                        <div style='display:none;' class="panel-title">Matrix Hotspot</div>
 
                     </div>     
 
@@ -40,9 +46,7 @@
                                         <input id="login-password" type="password" class="form-control" name="password" placeholder="password...">
                                     </div>
                                     
-
-                                
-
+ 
 
 
                                 <div style="margin-top:10px" class="form-group">
@@ -62,11 +66,16 @@
 
                         </div>                     
                     </div>  
-        </div>
- 
+
+        </div> 
+
     </div>
 
+<<<<<<< HEAD
  
+=======
+  
+>>>>>>> 96411971f560a3b43e0d78ea3a2290c033841883
 
 
  </body>
