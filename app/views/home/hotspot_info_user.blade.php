@@ -8,7 +8,13 @@
 			<tr>
 				<td>Total Data</td>
 				<td width='10%'> <span class='label label-success'>
-					{{ Radius_Radacct::where('acctstoptime', '=', NULL)->count() }}</span> 
+<?php
+$dtr = Radius_Radacct::whereUsername(Auth::user()->username)->sum('acctinputoctets');
+$dtx = Radius_Radacct::whereUsername(Auth::user()->username)->sum('acctoutputoctets');
+
+?>
+
+					{{ Fungsi::size($dtx+$dtr) }}</span> 
 				</td>
 			</tr>
 
