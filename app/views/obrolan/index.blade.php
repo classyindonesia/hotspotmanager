@@ -4,7 +4,7 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <script type="text/javascript">// <![CDATA[
-            var socket = io.connect('http://192.168.2.154:5000/');
+            var socket = io.connect('http://{{ $_ENV["APP_HOST_OBROLAN"] }}:5000/');
             socket.on('chat', function (data) {
                  socket.emit('pesan: ', data);
                  //$('#pesan').append(data+'<br>');
