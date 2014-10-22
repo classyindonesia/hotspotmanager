@@ -17,6 +17,7 @@ class CreateMstObrolanTable extends Migration {
 			$table->increments('id');
 			$table->string('username', 100);
  			$table->string('pesan');
+ 			$table->string('ip', 100);
 			$table->timestamps();
 		});
 	}
