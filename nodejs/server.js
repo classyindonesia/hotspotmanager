@@ -1,14 +1,21 @@
 var express =   require('express'),
     http =      require('http'),
-    server =    http.createServer(app);
+    server =    http.createServer(app),
+    dotenv = require('dotenv');
  
+dotenv.load();
+
 var app = express();
  
 const redis =   require('redis');
 const io =      require('socket.io');
 const client =  redis.createClient();
+
+var app_host = process.env.APP_HOST;
  
-server.listen(5000, '192.168.2.154');
+
+
+server.listen(5000, app_host);
  
 io.listen(server).on('connection', function(client) {
 
