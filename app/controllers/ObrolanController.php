@@ -18,6 +18,7 @@ class ObrolanController extends BaseController{
 		$data = [
  		'username'	=> Input::get('username'),
 		'pesan' => strip_tags(Input::get('pesan')),
+		'ip'	=> $ip = Request::getClientIp(),
 		];
 		$insert = Mst_Obrolan::create($data);
 
