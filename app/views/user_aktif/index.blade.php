@@ -129,7 +129,7 @@ $.ajax({
 <style type="text/css">
 .tabel_user td{
 	border :1px solid #ccc;
-	padding-left : 3px;
+	padding-left : 7px;
 
 }
 
