@@ -142,10 +142,10 @@ $.ajax({
 		<td width='5%'>No.</td>
 		<td>Username</td>
 		<td width='15%'> MAC Address</td>
-  		<td width='10%'>IP</td>
- 		<td width='10%'>data Rx</td>
- 		<td width='10%'>data Tx</td>
- 		<td width='10%'>data total</td>
+  		<td width='13%'>IP</td>
+ 		<td width='13%'>data Rx</td>
+ 		<td width='13%'>data Tx</td>
+ 		<td width='13%'>data total</td>
  		<td width='5%'>action</td>
 	</tr>
 	<?php $no=1; ?>
