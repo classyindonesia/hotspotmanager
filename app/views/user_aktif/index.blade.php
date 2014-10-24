@@ -4,7 +4,7 @@
 
 
 <span class='label label-success pull-right ' style='margin-left: 1em;'>
-	User online : {{ count($user_aktif) }} / 
+ 
 
 
 	Time Refresh : <input type='text' id='time_refresh'   @if(Session::has('time_refresh')) value='{{ Session::get("time_refresh") }}' @else value='10' @endif style='color: black;width:30px;font-size : 10px;'  />
@@ -124,7 +124,7 @@ $.ajax({
 </script>  
 
   
-<h3>User Online </h3>
+<h3>User Online : {{ count($user_aktif) }}</h3>
  
 <div class="col-md-12" style="margin-left:0">
 <table class="table table-bordered">
