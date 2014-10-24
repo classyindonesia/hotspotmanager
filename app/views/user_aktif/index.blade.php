@@ -141,13 +141,13 @@ $.ajax({
 	<?php $no=1; ?>
 @foreach($user_aktif as $list) 
 	<tr style='padding-bottom: 2px;padding-top:2px;'>
-		<td>{{ $no }}</td>
-		<td>{{ $list->username }}</td>
-		<td> {{ $list->callingstationid }} </td>
- 		<td> {{ $list->framedipaddress }} </td>
-		<td> {{ Fungsi::size($list->acctoutputoctets) }} </td>
-		<td> {{ Fungsi::size($list->acctinputoctets) }} </td>
-		<td> {{ Fungsi::size($list->acctoutputoctets+$list->acctinputoctets) }} </td>
+		<td style='padding-bottom: 2px;padding-top:2px;'>{{ $no }}</td>
+		<td style='padding-bottom: 2px;padding-top:2px;'>{{ $list->username }}</td>
+		<td style='padding-bottom: 2px;padding-top:2px;'> {{ $list->callingstationid }} </td>
+ 		<td style='padding-bottom: 2px;padding-top:2px;'> {{ $list->framedipaddress }} </td>
+		<td style='padding-bottom: 2px;padding-top:2px;'> {{ Fungsi::size($list->acctoutputoctets) }} </td>
+		<td style='padding-bottom: 2px;padding-top:2px;'> {{ Fungsi::size($list->acctinputoctets) }} </td>
+		<td style='padding-bottom: 2px;padding-top:2px;'> {{ Fungsi::size($list->acctoutputoctets+$list->acctinputoctets) }} </td>
 		<td align='center'>@include('user_aktif.action.kick')</td>
 	</tr>
 	<?php $no++; ?>
