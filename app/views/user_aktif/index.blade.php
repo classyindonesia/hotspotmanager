@@ -126,8 +126,18 @@ $.ajax({
   
 <h3>User Online : {{ count($user_aktif) }}</h3>
  
+<style type="text/css">
+.tabel_user td{
+	border :1px solid #ccc;
+	padding-left : 3px;
+
+}
+
+</style>
+
+
 <div class="col-md-12" style="margin-left:0">
-<table width='100%'>
+<table class='tabel_user' width='100%'>
 	<tr  class="alert alert-success" style='font-weight:bold;border-top:1px solid #ccc;border-bottom:1px solid #ccc;'>
 		<td width='5%'>No.</td>
 		<td>Username</td>
