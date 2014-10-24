@@ -139,7 +139,7 @@ $.ajax({
 <div class="col-md-12" style="margin-left:0">
 <table class='tabel_user' width='100%'>
 	<tr  class="alert alert-success" style='font-weight:bold;border-top:1px solid #ccc;border-bottom:1px solid #ccc;'>
-		<td width='5%'>No.</td>
+		<td style='text-align:center;' width='5%'>No.</td>
 		<td>Username</td>
 		<td width='15%'> MAC Address</td>
   		<td width='13%'>IP</td>
@@ -151,7 +151,7 @@ $.ajax({
 	<?php $no=1; ?>
 @foreach($user_aktif as $list) 
 	<tr style='border-top:1px solid #ccc;border-bottom:1px solid #ccc;'>
-		<td>{{ $no }}</td>
+		<td style='text-align:center;'>{{ $no }}</td>
 		<td>{{ $list->username }}</td>
 		<td> {{ $list->callingstationid }} </td>
  		<td> {{ $list->framedipaddress }} </td>
