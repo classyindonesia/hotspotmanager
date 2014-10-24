@@ -140,7 +140,7 @@ $.ajax({
 	</tr>
 	<?php $no=1; ?>
 @foreach($user_aktif as $list) 
-	<tr>
+	<tr style='padding-bottom: 2px;padding-top:2px;'>
 		<td>{{ $no }}</td>
 		<td>{{ $list->username }}</td>
 		<td> {{ $list->callingstationid }} </td>
