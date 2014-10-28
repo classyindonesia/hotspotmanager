@@ -2,6 +2,20 @@
 class Fungsi {
 
 
+
+
+public static function get_waktu($tgl1, $tgl2){
+  // Create two new DateTime-objects...
+  $date1 = new DateTime($tgl1);
+  $date2 = new DateTime($tgl2);
+
+  // The diff-methods returns a new DateInterval-object...
+  $diff = $date2->diff($date1);
+
+  // Call the format method on the DateInterval-object
+  return  $diff->format('%a Day and %h hours');
+}
+
 public static function timer()
 {
     $time = explode(' ', microtime());
