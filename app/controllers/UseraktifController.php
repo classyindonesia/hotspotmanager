@@ -48,6 +48,7 @@ class UseraktifController extends BaseController {
 		foreach($user_aktif as $list){
 			$username = $list->username;
 			$nas_ip = $list->nasipaddress;
+			$ip  = $list->framedipaddress;
 			$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
 			$nas_secret = $get_nas_data->secret;
 			$command[] = 'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret;
