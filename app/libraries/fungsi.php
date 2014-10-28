@@ -4,17 +4,18 @@ class Fungsi {
 
 
 
-public static function get_waktu($tgl1, $tgl2){
-  // Create two new DateTime-objects...
-  $date1 = new DateTime($tgl1);
-  $date2 = new DateTime($tgl2);
+public static function get_waktu($tgl1, $tgl2){ 
 
-  // The diff-methods returns a new DateInterval-object...
-  $diff = $date2->diff($date1);
+// return round((strtotime($tgl2) - strtotime($tgl1))/(60*60));
+   $day1 = strtotime($tgl1);
+   $day2 = strtotime($tgl2);
 
-  // Call the format method on the DateInterval-object
-  return  $diff->format('%a Day and %h hours');
+  return $diffHours = round(($day2 - $day1) / 3600);
+
 }
+
+
+
 
 public static function timer()
 {

@@ -135,7 +135,6 @@ $.ajax({
 
 </style>
 
-
 <div class="col-md-12" style="margin-left:0">
 <table class='tabel_user' width='100%'>
 	<tr  class="alert alert-success" style='font-weight:bold;border-top:1px solid #ccc;border-bottom:1px solid #ccc;'>
@@ -143,7 +142,7 @@ $.ajax({
 		<td>Username</td>
 		<td width='15%'> MAC Address</td>
   		<td width='13%'>IP</td>
-  		<td width='10%'>time</td>
+  		<td width='10%'>durasi</td>
  		<td width='13%'>data Rx</td>
  		<td width='13%'>data Tx</td>
  		<td width='13%'>data total</td>
@@ -156,7 +155,7 @@ $.ajax({
 		<td>{{ $list->username }}</td>
 		<td> {{ $list->callingstationid }} </td>
  		<td> {{ $list->framedipaddress }} </td>
- 		<td>{{ Fungsi::get_waktu($list->acctstarttime, date('Y-m-d H:i:s')) }}</td>
+ 		<td>{{ Fungsi::get_waktu($list->acctstarttime, date('Y-m-d H:i:s')) }} jam</td>
 		<td> {{ Fungsi::size($list->acctoutputoctets) }} </td>
 		<td> {{ Fungsi::size($list->acctinputoctets) }} </td>
 		<td> {{ Fungsi::size($list->acctoutputoctets+$list->acctinputoctets) }} </td>
