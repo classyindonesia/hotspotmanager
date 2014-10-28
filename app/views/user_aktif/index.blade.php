@@ -2,9 +2,9 @@
 @section('main')
 
 
-
+<button class='btn btn-info ' id='kick_alll'>tendang semua</button>
 <span class='label label-success pull-right ' style='margin-left: 1em;'>
-	<button class='btn btn-info' id='kick_alll'>kick all</button>
+	
  
 
 

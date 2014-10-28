@@ -1,4 +1,4 @@
-<i data-toggle='tooltip' title='kick' id='kick{{ $no }}' class='fa fa-times text-danger' style='cursor:pointer;'></i>
+<i data-toggle='tooltip' title='tendang' id='kick{{ $no }}' class='fa fa-times text-danger' style='cursor:pointer;'></i>
 
 <script>
 
