@@ -4,6 +4,7 @@
 
 
 <span class='label label-success pull-right ' style='margin-left: 1em;'>
+	<button class='btn btn-info' id='kick_alll'>kick all</button>
  
 
 
@@ -18,6 +19,21 @@
 
 
  <script>
+$('#kick_alll').click(function(){
+	$.ajax({
+		url : '{{ URL::route("kick_all_user") }}',
+		data : {oke : 1},
+		error : function(err){
+			alert('error! terjadi kesalahan pada sisi server!');
+		},
+		success:function(ok){
+			window.location.reload();
+		}
+	})
+})
+
+
+
  $(document).ready(function(){
  setInterval(function(){cache_clear()}, $('#time_refresh').val() * 1000);
  });

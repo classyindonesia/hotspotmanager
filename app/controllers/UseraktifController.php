@@ -42,6 +42,22 @@ class UseraktifController extends BaseController {
 	}
 
 
+	public function kick_all_user(){
+		$command = [];
+		$user_aktif = Radius_Radacct::where('acctstoptime', '=', NULL)->get();
+		foreach($user_aktif as $list){
+			$username = $list->username;
+			$nas_ip = $list->nasipaddress;
+			$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
+			$nas_secret = $get_nas_data->secret;
+			$command[] = 'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret;
+		}
+
+		SSH::run($command);
+		return 'ok';
+	}
+
+
 	public function update_time_refresh(){
 		Session::put('time_refresh', Input::get('time_refresh'));
 	}
