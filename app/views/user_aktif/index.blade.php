@@ -15,7 +15,7 @@
 
 
  
-
+{{ date('Y-m-d H:i:s') }}
 
 
  <script>
@@ -33,7 +33,7 @@ $('#kick_alll').click(function(){
 				window.location.reload();
 			}
 		})
-		
+
 	}
 })
 
