@@ -20,17 +20,21 @@
 
  <script>
 $('#kick_alll').click(function(){
-	$.ajax({
-		url : '{{ URL::route("kick_all_user") }}',
-		type : 'post',
-		data : {oke : 1},
-		error : function(err){
-			alert('error! terjadi kesalahan pada sisi server!');
-		},
-		success:function(ok){
-			window.location.reload();
-		}
-	})
+	setuju = confirm('are you sure ?');
+	if(setuju == true){
+		$.ajax({
+			url : '{{ URL::route("kick_all_user") }}',
+			type : 'post',
+			data : {oke : 1},
+			error : function(err){
+				alert('error! terjadi kesalahan pada sisi server!');
+			},
+			success:function(ok){
+				window.location.reload();
+			}
+		})
+		
+	}
 })
 
 
