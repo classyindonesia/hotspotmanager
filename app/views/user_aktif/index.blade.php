@@ -175,7 +175,7 @@ $.ajax({
 		<td>{{ $list->username }}</td>
 		<td> {{ $list->callingstationid }} </td>
  		<td> {{ $list->framedipaddress }} </td>
- 		<td>{{ Fungsi::get_waktu($list->acctstarttime, date('Y-m-d H:i:s')) }} jam</td>
+ 		<td>{{ Fungsi::get_durasi($list->acctstarttime, date('Y-m-d H:i:s')) }} </td>
 		<td> {{ Fungsi::size($list->acctoutputoctets) }} </td>
 		<td> {{ Fungsi::size($list->acctinputoctets) }} </td>
 		<td> {{ Fungsi::size($list->acctoutputoctets+$list->acctinputoctets) }} </td>

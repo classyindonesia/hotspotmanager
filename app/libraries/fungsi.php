@@ -4,13 +4,17 @@ class Fungsi {
 
 
 
-public static function get_waktu($tgl1, $tgl2){ 
+public static function get_durasi($tgl1, $tgl2){ 
 
-// return round((strtotime($tgl2) - strtotime($tgl1))/(60*60));
-   $day1 = strtotime($tgl1);
-   $day2 = strtotime($tgl2);
+$date1 = new DateTime($tgl1);
+$date2 = new DateTime($tgl2);
+$interval = $date1->diff($date2);
+if($interval->d == 0){
+  return $interval->h.":".$interval->i.":".$interval->s;
+}else{
+  return 'd'.$interval->d." ".$interval->h.":".$interval->i.":".$interval->s; 
+}
 
-  return $diffHours = round(($day2 - $day1) / 3600);
 
 }
 
