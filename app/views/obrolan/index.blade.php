@@ -19,11 +19,6 @@ $.get('{{ URL::to("obrolan/show") }}/'+data, function(data){
 
 
             });
-
-
-socket.on('connect', function() { connectCounter++; });
-socket.on('disconnect', function() { connectCounter--; });
-            
  
 // ]]></script>
 
