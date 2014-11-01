@@ -37,8 +37,14 @@ class UseraktifController extends BaseController {
  
 		SSH::run(array(
 		    'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret,
-		 
 		));
+		
+		//cek apakah user masih ada
+		$user_aktif = Radius_Radacct::where('acctstoptime', '=', NULL)->where('username', '=', $username)->orderBy('radacctid', 'ASC')->first();
+		if(count($user_aktif)>0){
+			//jika ada session yg tersisa di DB, maka acct di hapus
+			$user_aktif->delete();
+		}
 	}
 
 
