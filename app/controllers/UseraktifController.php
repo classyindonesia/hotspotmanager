@@ -53,7 +53,7 @@ class UseraktifController extends BaseController {
 
 
 	public function kick_all_user(){
-		$command = [];
+		$command  
 		$user_aktif = Radius_Radacct::where('acctstoptime', '=', NULL)->get();
 		foreach($user_aktif as $list){
 			$username = $list->username;
@@ -61,10 +61,11 @@ class UseraktifController extends BaseController {
 			$ip  = $list->framedipaddress;
 			$get_nas_data = Radius_Nas::where('nasname', '=', $nas_ip)->first();
 			$nas_secret = $get_nas_data->secret;
-			$command[] = 'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret;
+			$command = 'echo User-Name='.$username.',Framed-IP-Address='.$ip.'|/usr/bin/radclient -x '.$nas_ip.':1700 disconnect '.$nas_secret;
+			SSH::run($command);
 		}
 
-		SSH::run($command);
+		
 
 		if(count($user_aktif)>0){
 			foreach($user_aktif as $list){
