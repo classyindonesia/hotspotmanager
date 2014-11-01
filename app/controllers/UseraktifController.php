@@ -44,7 +44,7 @@ class UseraktifController extends BaseController {
 		->where('username', '=', $username)
 		->orderBy('radacctid', 'ASC')
 		->first();
-		
+
 		if(count($user_aktif)>0){
 			//jika ada session yg tersisa di DB, maka acct di hapus
 			$user_aktif->delete();
@@ -65,6 +65,12 @@ class UseraktifController extends BaseController {
 		}
 
 		SSH::run($command);
+
+		if(count($user_aktif)>0){
+			foreach($user_aktif as $list){
+				$list->delete();
+			}
+		}
 		return 'ok';
 	}
 
