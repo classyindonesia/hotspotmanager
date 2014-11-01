@@ -53,7 +53,6 @@ class UseraktifController extends BaseController {
 
 
 	public function kick_all_user(){
-		$command  
 		$user_aktif = Radius_Radacct::where('acctstoptime', '=', NULL)->get();
 		foreach($user_aktif as $list){
 			$username = $list->username;
