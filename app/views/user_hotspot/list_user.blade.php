@@ -10,7 +10,7 @@
 		<th>Nama</th>
 		<th width='10%'>Profile</th>
 		<th width='10%'>Usage</th>
-		<th width='15%'>action</th>
+		<th width='12%'>action</th>
 	</tr>
 	</thead>
 	<tbody>	
