@@ -9,3 +9,4 @@ Route::post('user_hotspot/test_radius', ['before' => 'auth|admin', 'uses' => 'Us
 Route::get('user_hotspot/import', ['as' => 'user_hotspot_import','before' => 'auth|admin', 'uses' => 'UserHotspotController@import']);
 Route::post('user_hotspot/do_import', ['as' => 'user_hotspot_do_import', 'before' => 'auth|admin', 'uses' => 'UserHotspotController@do_import']);
 Route::post('user_hotspot/submit_search', ['as' => 'user_hotspot_search', 'before' => 'auth|admin', 'uses' => 'UserHotspotController@submit_search']);
+Route::get('user_hotspot/view_detail/{id}', ['as' => 'user_hotspot.view_detail','before' => 'auth|admin', 'uses' => 'UserHotspotController@view_detail']);
