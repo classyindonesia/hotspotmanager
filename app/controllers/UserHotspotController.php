@@ -239,7 +239,7 @@ if($hasil_jadi == 'ok') {
 
 
 	public function view_detail($id){
-		$d = Radius_Radcheck::find($id);
+		$d = Radius_Radcheck::where('username', '=', $id)->first();
 		return View::make('user_hotspot.popup.view_detail', compact('d'));
 	}
 

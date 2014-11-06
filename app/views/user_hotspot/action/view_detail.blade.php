@@ -3,6 +3,6 @@
 <script type="text/javascript">
 $('#view{{ $list->id }}').click(function(){
 	$('#myModal').modal('show');
-	$('.modal-body').load('{{ URL::route("user_hotspot.view_detail", $list->id) }}');
+	$('.modal-body').load('{{ URL::route("user_hotspot.view_detail", $list->username) }}');
 });
 </script>
