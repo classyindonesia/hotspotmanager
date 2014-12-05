@@ -114,5 +114,28 @@ class ProfileController extends BaseController {
 		return 'ok';
 	}
 
+
+	public function clear_user(){
+		$profile = Mst_Profile::find(Input::get('id'));
+
+		$group = Radius_Radusergroup::whereGroupname($profile->nama)->get();
+		foreach($group as $list){
+
+			$data_user = Mst_Data_User::where('username', '=', $list->username)->first();
+			$data_user->delete();
+
+			$mst_user = Mst_User::where('username', '=', $list->username)->first();
+			$mst_user->delete();
+			//del user
+			$user = Radius_Radcheck::where('username', '=', $list->username)->first();
+			$user->delete();
+			//del user's group
+			$list->delete();
+		}
+
+
+ 		return 'ok';		
+	}
+
  
 }

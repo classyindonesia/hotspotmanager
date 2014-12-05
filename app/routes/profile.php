@@ -10,3 +10,5 @@ Route::post('profile/submit_add_atribut', ['before' => 'auth|admin', 'uses' => '
 Route::post('profile/del_atribut', ['before' => 'auth|admin', 'uses' => 'ProfileController@del_atribut']);
 Route::get('profile/edit_atribut/{id}/{id_atribut}', ['before' => 'auth|admin', 'uses' => 'ProfileController@edit_atribut']);
 Route::post('profile/submit_update_atribut', ['before' => 'auth|admin', 'uses' => 'ProfileController@submit_update_atribut']);
+Route::post('profile/clear_user', ['before' => 'auth|admin', 'uses' => 'ProfileController@clear_user']);
+

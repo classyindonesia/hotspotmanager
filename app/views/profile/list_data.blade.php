@@ -6,7 +6,7 @@
 		<td>Nama Profil</td>
 		<td width='5%'>Atribut</td>
 		<td width='5%'>User</td>
- 		<td align='center' width='7%'>action</td>
+ 		<td align='center' width='10%'>action</td>
 	</tr>
 <?php $no=$profile->getFrom(); ?>
 @foreach($profile as $list)

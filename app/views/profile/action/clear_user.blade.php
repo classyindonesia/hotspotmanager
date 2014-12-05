@@ -1,7 +1,7 @@
 
-<i data-toggle='tooltip' title='delete profile+users' class='fa fa-times' style='cursor:pointer;' id='del{{ $list->id }}'></i>
+<i data-toggle='tooltip' title='clear user' class='fa fa-refresh' style='cursor:pointer;' id='clear{{ $list->id }}'></i>
 <script type="text/javascript">
-$('#del{{ $list->id }}').click(function(){
+$('#clear{{ $list->id }}').click(function(){
 	setuju = confirm('are you sure?');
 	if(setuju == true){
 		$.ajax({
