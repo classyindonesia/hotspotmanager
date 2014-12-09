@@ -40,3 +40,5 @@
 @endforeach
 	</tbody>
 </table>
+
+{{ $nas->links() }}
