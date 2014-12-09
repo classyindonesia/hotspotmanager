@@ -10,6 +10,8 @@
       {{ HTML::style('assets/css/bootstrap/bootstrap.min.css') }}
       {{ HTML::style('assets/css/bootstrap/bootstrap-theme.min.css') }}
 
+      {{ HTML::style('assets/css/font-awesome/css/font-awesome.min.css') }}
+
  
 
 </head>
@@ -21,8 +23,11 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <center>  
-                            <img src="{{ URL::to("") }}/assets/img/logo_man3.png" style='width:50px;height:50px;' />
+                        <center style='font-size:40px;'>  
+                        <i class="fa fa-cubes"></i>
+                       <i class="fa fa-desktop"></i>
+                       <i class="fa fa-signal"></i>
+
                         </center>
                         
                         <center> <h2>MATRIX HOTSPOT</h2> </center>
