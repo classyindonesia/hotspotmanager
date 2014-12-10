@@ -245,4 +245,48 @@ if($hasil_jadi == 'ok') {
 
 
 
+	public function view_attributes($username){
+		$radreply = Radius_Radreply::where('username', '=', $username)->get();
+		return View::make('user_hotspot.popup.view_attributes', compact('radreply'));
+	}
+
+
+	public function add_user_attributes($username){
+		return View::make('user_hotspot.popup.add_attributes');
+	}
+
+
+	public function insert_user_attributes(){
+		$data = [
+		'username' => Input::get('username'),
+		'attribute'	=> Input::get('attribute'),
+		'op'		=> Input::get('op'),
+		'value'		=> Input::get('value'),
+		];
+
+		Radius_Radreply::create($data);
+		return 'ok';
+	}
+
+	public function del_user_attributes(){
+		$o = Radius_Radreply::find(Input::get('id'));
+		$o->delete();
+	}
+
+	public function edit_user_attributes($username, $id){
+		$radreply = Radius_Radreply::find($id);
+		return View::make('user_hotspot.popup.edit_attributes', compact('radreply'));
+	}
+
+	public function update_user_attributes(){
+		$o = Radius_Radreply::find(Input::get('id'));
+		$o->attribute = Input::get('attribute');
+		$o->op = Input::get('op');
+		$o->value = Input::get('value');
+		$o->save();
+		return 'ok';
+	}
+ 
+
+
 }
