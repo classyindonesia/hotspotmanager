@@ -1,4 +1,4 @@
- 	<legend>Tambah Atribut</legend>
+ 	<legend>Tambah Atribut [Reply] </legend>
 
 	<div class="form-group">
 		<label for="">Attribute</label>
