@@ -245,6 +245,11 @@ if($hasil_jadi == 'ok') {
 
 
 
+
+
+
+/* Reply Attribute */
+
 	public function view_attributes($username){
 		$radreply = Radius_Radreply::where('username', '=', $username)->get();
 		return View::make('user_hotspot.popup.view_attributes', compact('radreply'));
@@ -287,6 +292,59 @@ if($hasil_jadi == 'ok') {
 		return 'ok';
 	}
  
+
+
+
+
+
+/* Check Attribute */
+
+	public function view_check_attributes($username){
+		$radcheck = Radius_Radcheck::where('username', '=', $username)->get();
+		return View::make('user_hotspot.popup.view_check_attributes', compact('radcheck'));
+	}
+
+
+	public function add_user_check_attributes($username){
+		return View::make('user_hotspot.popup.add_check_attributes');
+	}
+
+
+	public function insert_user_check_attributes(){
+		$data = [
+		'username' => Input::get('username'),
+		'attribute'	=> Input::get('attribute'),
+		'op'		=> Input::get('op'),
+		'value'		=> Input::get('value'),
+		];
+
+		Radius_Radcheck::create($data);
+		return 'ok';
+	}
+
+	public function del_user_check_attributes(){
+		$o = Radius_Radcheck::find(Input::get('id'));
+		$o->delete();
+	}
+
+	public function edit_user_check_attributes($username, $id){
+		$radreply = Radius_Radcheck::find($id);
+		return View::make('user_hotspot.popup.edit_check_attributes', compact('radreply'));
+	}
+
+	public function update_user_check_attributes(){
+		$o = Radius_Radcheck::find(Input::get('id'));
+		$o->attribute = Input::get('attribute');
+		$o->op = Input::get('op');
+		$o->value = Input::get('value');
+		$o->save();
+		return 'ok';
+	}
+
+
+
+
+
 
 
 }

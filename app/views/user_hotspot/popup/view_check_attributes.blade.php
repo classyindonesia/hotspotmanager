@@ -1,21 +1,19 @@
 @include('user_hotspot.popup.komponen.nav_atas_atribut')
 
-
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#reply').addClass('active');
+	$('#check').addClass('active');
 })
 </script>
 
 
 
- 
 <hr style='margin:3px'>
 <button class='btn btn-success pull-right' id='add'> <i class='fa fa-plus-square'></i> create</button>
 <script type="text/javascript">
 $('#add').click(function(){
 	$('#myModal').modal('show');
-	$('.modal-body').load('{{ URL::route("user_hotspot.add_user_attributes", Request::segment(3)) }}');
+	$('.modal-body').load('{{ URL::route("user_hotspot.add_user_check_attributes", Request::segment(3)) }}');
 })
 </script>
 
@@ -35,14 +33,14 @@ username : {{ Request::segment(3) }}
 	</thead>
 	<tbody>
 		<?php $no=1; ?>
-@foreach($radreply as $list)		
+@foreach($radcheck as $list)		
 		<tr>
 			<td>{{ $no }}</td>
 			<td> {{ $list->attribute }} </td>
 			<td> {{ $list->op }} </td>
 			<td> {{ $list->value }} </td>
-			<td>@include('user_hotspot.action.edit_attributes') ||
-				@include('user_hotspot.action.del_attributes')</td>
+			<td>@include('user_hotspot.action.edit_check_attributes') ||
+				@include('user_hotspot.action.del_check_attributes')</td>
 		</tr>
 		<?php $no++; ?>
 @endforeach
