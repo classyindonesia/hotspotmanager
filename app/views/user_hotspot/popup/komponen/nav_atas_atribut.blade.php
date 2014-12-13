@@ -10,6 +10,7 @@ $('#reply').click(function(){
 	$('.modal-body').load('{{ URL::route("user_hotspot.view_attributes", Request::segment(3)) }}');
 	//$('#reply').addClass('active');
 	//$('#check').removeClass('active');	
+	return false;
 });
 
 
@@ -19,6 +20,7 @@ $('#check').click(function(){
 	$('.modal-body').load('{{ URL::route("user_hotspot.view_check_attributes", Request::segment(3)) }}');
 	//$('#check').addClass('active');
 	//$('#reply').removeClass('active');	
+	return false;
 });
 
 
