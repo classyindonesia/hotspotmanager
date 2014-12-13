@@ -39,8 +39,15 @@ username : {{ Request::segment(3) }}
 			<td> {{ $list->attribute }} </td>
 			<td> {{ $list->op }} </td>
 			<td> {{ $list->value }} </td>
-			<td>@include('user_hotspot.action.edit_check_attributes') ||
-				@include('user_hotspot.action.del_check_attributes')</td>
+			<td>
+				@if($list->attribute != 'Cleartext-Password')
+					@include('user_hotspot.action.edit_check_attributes') ||
+					@include('user_hotspot.action.del_check_attributes')
+				@else
+					-
+				@endif
+
+			</td>
 		</tr>
 		<?php $no++; ?>
 @endforeach
