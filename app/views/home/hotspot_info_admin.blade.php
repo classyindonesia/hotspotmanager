@@ -2,7 +2,7 @@
 	<table class="table">
 			<tr>
 				<td>User Hotspot</td>
-				<td width='10%'> <span class='label label-success'>{{ Radius_Radcheck::count() }}</span> </td>
+				<td width='10%'> <span class='label label-success'>{{-- Radius_Radcheck::count() --}}</span> </td>
 			</tr>
 
 			<tr>
