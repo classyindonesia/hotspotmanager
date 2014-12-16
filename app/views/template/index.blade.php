@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hotspot Manager</title>
+	<title>{{  $_ENV['NAMA_APLIKASI'] }}</title>
  
     {{ HTML::script('assets/js/jquery/jquery.min.js') }}
     {{ HTML::script('assets/js/bootstrap/bootstrap.min.js') }}

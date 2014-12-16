@@ -1,7 +1,7 @@
 @extends('template.index')
 @section('main')
 
-<h3> <i class='fa fa-signal'></i> Matrix Hotspot - {{ Fungsi::setup_variable('nama_tempat') }}</h3>
+<h3> <i class='fa fa-signal'></i> {{  $_ENV['NAMA_APLIKASI'] }} - {{ Fungsi::setup_variable('nama_tempat') }}</h3>
 <hr>
 
 @if(Auth::user()->ref_user_level_id == 1)

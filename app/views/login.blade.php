@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Matrix Hotspot</title>
+	<title>{{  $_ENV['NAMA_APLIKASI'] }}</title>
  
     {{ HTML::script('assets/js/jquery/jquery.min.js') }}
     {{ HTML::script('assets/js/bootstrap/bootstrap.min.js') }}
@@ -30,9 +30,9 @@
 
                         </center>
                         
-                        <center> <h2>MATRIX HOTSPOT</h2> </center>
+                        <center> <h2>{{ strtoupper($_ENV['NAMA_APLIKASI']) }}</h2> </center>
 
-                        <div style='display:none;' class="panel-title">Matrix Hotspot</div>
+                        <div style='display:none;' class="panel-title">{{  $_ENV['NAMA_APLIKASI'] }}</div>
 
                     </div>     
 
