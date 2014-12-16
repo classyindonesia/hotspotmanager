@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
  $(document).ready(function(){
-	$('#reply').addClass('active');
+	$('#check').addClass('active');
 })
  
 
@@ -17,7 +17,7 @@
 <script type="text/javascript">
 $('#add').click(function(){
 	$('#myModal').modal('show');
-	$('.modal-body').load('{{ URL::to("profile/add_atribut/".$profile->id) }}');
+	$('.modal-body').load('{{ URL::route("profile.add_check_atribut", $profile->id) }}');
 })
 </script>
 
@@ -26,7 +26,7 @@ $('#add').click(function(){
 
 
 
-<h3>[REPLY] Atribut Profile : {{ $profile->nama }}</h3>
+<h3>[CHECK] Atribut Profile : {{ $profile->nama }}</h3>
 
 
 <table class="table table-bordered table-hover">
@@ -49,7 +49,7 @@ $('#add').click(function(){
 			<td> {{ $list->attribute }} </td>
 			<td>{{ $list->op }}</td>
 			<td> {{ $list->value }} </td>
-			<td>@include('profile.action.popup_list')</td>
+			<td>@include('profile.action.popup_list_check')</td>
 		</tr>
 		<?php $no++; ?>
 	@endforeach

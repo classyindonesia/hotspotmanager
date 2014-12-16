@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>
-<h4>[REPLY] Tambah Atribut : {{ $profile->nama }}</h4>
+<h4>[CHECK] Tambah Atribut : {{ $profile->nama }}</h4>
 <hr>
 
 <table class='table'>
@@ -54,7 +54,7 @@ $('#nama').keydown(function(e) {
 
 $('#cancel').click(function(){
 	$('.modal-body').html('loading... <i class="fa fa-spinner fa-spin"></i>');
-	$('.modal-body').load('{{ URL::to("profile/view_atribut/".$profile->id) }}');
+	$('.modal-body').load('{{ URL::route("profile.view_check_atribut", Request::segment(3)) }}');
 })
 
 
@@ -79,14 +79,14 @@ $('#tambahkan').click(function(){
 	$('#tambahkan').attr('disabled', 'disabled');
 
 	$.ajax({
-		url : '{{ URL::to("profile/submit_add_atribut") }}',
+		url : '{{ URL::route("profile.submit_add_check_atribut") }}',
 		type : 'post',
 		data : form_data,
 		success:function(ok){
 			$('#tambahkan').removeAttr('disabled');
 			alert('saved!');
 			//$('#myModal').modal('hide');
-			$('.modal-body').load('{{ URL::to("profile/view_atribut/".$profile->id) }}');
+			$('.modal-body').load('{{ URL::route("profile.view_check_atribut", Request::segment(3)) }}');
 			//window.location.reload();
 		}
 	})

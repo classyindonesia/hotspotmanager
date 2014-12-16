@@ -73,29 +73,7 @@ class ProfileController extends BaseController {
 	 return 'ok';		
 	}
 
-
-
-
-
-
-
-	public function update(){
-		$input1 = [
-		'groupname' => Input::get('nama'),
-		 'attribute' => 'Mikrotik-Rate-Limit',
-		 'op'		=> '==',
-		 'value'	=> Input::get('max_download').'k/'.Input::get('max_upload').'k',
-		 ];
-		$input2 = [
-		'groupname' => Input::get('nama'),
-		 'attribute' => 'Simultaneous-Use',
-		 'op'		=> '==',
-		 'value'	=> Input::get('max_login'),
-		 ];
-		 Radius_Radgroupreply::create($input1);
-		 Radius_Radgroupreply::create($input2);
-		 return 'ok';
-	}
+ 
 
 
 	public function del(){
@@ -136,6 +114,61 @@ class ProfileController extends BaseController {
 
  		return 'ok';		
 	}
+
+
+
+
+
+
+
+	public function view_check_atribut($id){
+		$profile = Mst_Profile::find($id);
+		$atribut = Radius_Radgroupcheck::where('groupname', '=', $profile->nama)->get();
+		return View::make('profile.popup.list_check_atribut', compact('profile', 'atribut'));
+	}
+
+	public function add_check_atribut($id){
+		$profile = Mst_Profile::find($id);
+		return View::make('profile.popup.add_check_atribut', compact('profile'));
+	}
+
+
+	public function submit_add_check_atribut(){
+		$input = [
+		'attribute' => Input::get('nama'),
+		'op'	=> Input::get('operator'),
+		'value'	=> Input::get('value'),
+		'groupname'	=> Input::get('groupname'),
+ 		 ];
+		 Radius_Radgroupcheck::create($input);
+		 return 'ok';		
+	}
+
+
+
+	public function edit_check_atribut($id, $id_atribut){
+		$profile = Mst_Profile::find($id);
+		$atribut = Radius_Radgroupcheck::find($id_atribut);
+		return View::make('profile.popup.edit_check_atribut', compact('profile', 'atribut'));
+	}
+
+
+	public function submit_update_check_atribut(){
+		$a = Radius_Radgroupcheck::find(Input::get('id'));
+		$a->attribute = Input::get('nama');
+		$a->op 			= Input::get('operator');
+		$a->value 		= Input::get('value');
+		$a->save();
+
+	 return 'ok';		
+	}
+	public function del_check_atribut(){
+		$o = Radius_Radgroupcheck::find(Input::get('id'));
+		$o->delete();
+	}	
+
+
+
 
  
 }

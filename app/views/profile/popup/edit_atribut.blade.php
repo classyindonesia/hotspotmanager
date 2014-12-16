@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(function () { $("[data-toggle='tooltip']").tooltip(); });
 </script>
-<h4>Edit Atribut : {{ $profile->nama }}</h4>
+<h4>[REPLY] Edit Atribut : {{ $profile->nama }}</h4>
 <hr>
 
 <table class='table'>
