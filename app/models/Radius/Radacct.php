@@ -7,6 +7,10 @@ class Radius_Radacct extends Eloquent{
 	 protected $primaryKey = 'radacctid';
 	 public $timestamps = false;
 
+
+	 public function nas(){
+	 	return $this->belongsTo('Radius_Nas', 'nasipaddress', 'nasname');
+	 }
  
 
  
