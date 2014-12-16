@@ -6,6 +6,7 @@
 			<th style='text-align:center;'  width='10%'> <i class='fa fa-plug'></i> MAC ADDR</th>
 			<th style='text-align:center;'  width='20%'> <i class='fa fa-clock'></i> Start</th>
 			<th style='text-align:center;'  width='20%'> <i class='fa fa-clock'></i> Stop</th>
+			<th style='text-align:center;'  width='6%'> <i class='fa fa-clock'></i> NAS</th>
 			<th style='text-align:center;' width='10%'> <i data-toggle='tooltip' title='total download' class='fa fa-cloud-download'></i> </th>
 			<th style='text-align:center;'  width='10%'> <i data-toggle='tooltip' title='total upload' class='fa fa-cloud-upload'></i> </th>
 			<th style='text-align:center;'  width='10%'> <i data-toggle='tooltip' title='total data' class='fa fa-database'></i> </th>
@@ -29,6 +30,7 @@ $no = $log_usage->getFrom();
 				  @endif
 
 			</td>
+			<td> @if(count($list->nas)>0) {{ $list->nas->shortname }} @else - @endif </td>
 
 			<td> {{ Fungsi::size($list->acctinputoctets) }} </td>
 			<td> {{ Fungsi::size($list->acctoutputoctets) }} </td>
