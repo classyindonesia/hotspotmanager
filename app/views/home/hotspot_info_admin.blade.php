@@ -7,7 +7,7 @@
 
 			<tr>
 				<td>User Online</td>
-				<td width='10%'> <span class='label label-success'>{{ Radius_Radacct::where('acctstoptime', '=', NULL)->count() }}</span> </td>
+				<td width='10%'> <span class='label label-success'>{{-- Radius_Radacct::where('acctstoptime', '=', NULL)->count() --}}</span> </td>
 			</tr>
 
 			<tr>
