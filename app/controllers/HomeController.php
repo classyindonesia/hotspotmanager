@@ -19,11 +19,7 @@ class HomeController extends BaseController {
 	}
 
 	public function index(){
-		$userhotspot = Radius_Radcheck::with('radusergroup')
-		->groupBy('username')
-		->paginate(10);
-		return View::make('home.index')
-		->with('userhotspot', $userhotspot);
+		return View::make('home.index');
 	}
 
 
