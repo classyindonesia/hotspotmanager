@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a    class="navbar-brand" href="{{ URL::to('/') }}"> <i class='fa fa-cloud'></i> Matrix Hotspot </a>
+      <a    class="navbar-brand" href="{{ URL::to('/') }}"> <i class='fa fa-cloud'></i> {{ $_ENV['NAMA_APLIKASI'] }} </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
