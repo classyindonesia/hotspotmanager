@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"php-excel-reader/spreadsheet-reader": "dev-master"
+		"php-excel-reader/spreadsheet-reader": "dev-master",
+		 "ifsnop/mysqldump-php":"1.*"
+
 	},
 	"autoload": {
 		"classmap": [
