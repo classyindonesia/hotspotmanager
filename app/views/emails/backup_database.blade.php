@@ -1,0 +1,1 @@
+backup database tanggal : {{ Fungsi::date_to_tgl(date('Y-m-d')) }} | {{ date('H:i:s') }}

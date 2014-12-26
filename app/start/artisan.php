@@ -15,3 +15,6 @@
 //Artisan::add(new migrasi_template); 
 Artisan::add(new Matrix); 
 Artisan::add(new blokir_user); 
+Artisan::add(new hapus_blokir_user); 
+Artisan::add(new backupdb_to_email); 
+ 

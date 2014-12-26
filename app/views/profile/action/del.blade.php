@@ -5,7 +5,7 @@ $('#del{{ $list->id }}').click(function(){
 	setuju = confirm('are you sure?');
 	if(setuju == true){
 		$.ajax({
-			url : '{{ URL::to("profile/clear_user") }}',
+			url : '{{ URL::to("profile/del") }}',
 			data : {id : '{{ $list->id }}'},
 			type : 'post',
 			error: function(err){

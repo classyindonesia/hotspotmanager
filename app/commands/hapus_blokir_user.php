@@ -4,25 +4,24 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class blokir_user extends Command {
+class hapus_blokir_user extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'blokir_user';
+	protected $name = 'hapus_blokir_user';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'memblokir user';
+	protected $description = 'Mengaktifkan kembali user yg telah terblokir.';
 
  
-	public function fire()
-	{
+	public function fire(){
 		$username = $this->argument('user');
 		//check user
 		$radcheck = Radius_Radcheck::where('username', '=', $username)->first();
@@ -32,15 +31,9 @@ class blokir_user extends Command {
 			->where('attribute', '=', 'Auth-Type')
 			->where('value', '=', 'Reject')
 			->first();
-			if(count($radcheck_blokir)<=0){
-				//jika blm ada, maka insert
-				$data = [
-					'username' => $username, 
-					'attribute' => 'Auth-Type',
-					'op'		=> ':=',
-					'value'		=> 'Reject'
-					];
-					Radius_Radcheck::create($data);
+			if(count($radcheck_blokir)>0){
+				//jika ada, maka hapus
+	 			$radcheck_blokir->delete();
 
 				//check apakah di radreply sudah ada pesan disabled
 				$check_reply = Radius_Radreply::where('username', '=', $username)
@@ -48,35 +41,22 @@ class blokir_user extends Command {
 				->where('value', '=', 'your account has been disabled')
 				->first();
 	
-				if(count($check_reply)<=0){ //jika blm ada, maka insert pesan tsb
-					$data_reply = [
-					'username' => $username, 
-					'attribute' => 'Reply-Message',
-					'op'		=> '=',
-					'value'		=> 'your account has been disabled',
-					];
-					Radius_Radreply::create($data_reply);
-
+				if(count($check_reply)>0){ //jika ada, maka hapus
+			 		$check_reply->delete();
 				}
 
 
 			}
 		}
-		 $this->info('user : '.$username.' telah terblokir!');
+		 $this->info('user : '.$username.' telah diaktifkan kembali!');
 	}
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
+ 
 	protected function getArguments()
 	{
 		return array(
-			array('user', InputArgument::REQUIRED, 'Input User'),
+			array('user', InputArgument::REQUIRED, 'Input user.'),
 		);
 	}
-
  
 
 }

@@ -76,9 +76,14 @@ class ProfileController extends BaseController {
  
 
 
+	/* Fungsi untuk menghapus profile template beserta
+	 * user yg ada di dalamnya, dan juga attribute yg ada pada
+	 * user tsb.
+	*/
 	public function del(){
 		$profile = Mst_Profile::find(Input::get('id'));
 
+		/* hapus record di radgroupreply */
 		$p = Radius_Radgroupreply::where('groupname', '=', $profile->nama)->first();
 		if(count($p)>0){
 			$nm_p = $p->groupname;
@@ -86,11 +91,42 @@ class ProfileController extends BaseController {
 			foreach($data as $list){
 				$list->delete();
 			}
-				
 		}
+		/* hapus record di radgroupcheck */
+		$c = Radius_Radgroupcheck::where('groupname', '=', $profile->nama)->first();
+		if(count($c)>0){
+			$nm_c = $c->groupname;
+			$data2 = Radius_Radgroupcheck::where('groupname', '=', $nm_c)->get();
+			foreach($data2 as $list){
+				$list->delete();
+			}
+
+		}
+
+		/* del users */
+		$usergroup = Radius_Radusergroup::where('groupname', '=', $profile->nama)->get();
+		foreach($usergroup as $list){
+			$users_check = Radius_Radcheck::where('username', '=', $list->username)->get();
+			$users_reply = Radius_Radreply::where('username', '=', $list->username)->get();
+			foreach($users_check as $user){
+				$user->delete();
+			}
+			foreach($users_reply as $user){
+				$user->delete();
+			}
+
+			/* del user's group */
+			$list->delete();
+		}
+
+
+		/* hapus record di mst_profile */
 		$profile->delete();
 		return 'ok';
 	}
+
+
+
 
 
 	public function clear_user(){
