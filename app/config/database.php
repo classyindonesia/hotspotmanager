@@ -57,6 +57,7 @@ return array(
 			'host'      => getenv('DB_HOST'),
 			'database'  => getenv('DB_NAME'),
 			'username'  => getenv('DB_USERNAME'),
+			'port'		=> getenv('DB_PORT'),
 			'password'  => getenv('DB_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
@@ -68,6 +69,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => getenv('DB_RADIUS_HOST'),
 			'database'  => getenv('DB_RADIUS_NAME'),
+			'port'		=> getenv('DB_RADIUS_PORT'),
 			'username'  => getenv('DB_RADIUS_USERNAME'),
 			'password'  => getenv('DB_RADIUS_PASSWORD'),
 			'charset'   => 'utf8',
@@ -75,16 +77,7 @@ return array(
 			'prefix'    => '',
 		),
 
-		'yfi' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'yfi',
-			'username'  => 'homestead',
-			'password'  => 'secret',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),
+ 
 
 
 		'pgsql' => array(
