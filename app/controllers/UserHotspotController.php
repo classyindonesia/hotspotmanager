@@ -238,6 +238,69 @@ if($hasil_jadi == 'ok') {
 
 
 
+
+
+	public function import_blokir(){
+		return View::make('user_hotspot.popup.import_blokir');		
+	}
+	public function import_hapus_blokir(){
+		return View::make('user_hotspot.popup.import_hapus_blokir');		
+	}
+
+
+	public function do_import_blokir(){
+        if(!file_exists($_FILES['userfile']['tmp_name']) || !is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+        Session::flash('pesan', '<span class="alert alert-danger"> error! no file! </span>');
+        return Redirect::to("user_hotspot");      
+        }else{
+            $file = $_FILES['userfile']['tmp_name'];
+                $data = new Reader($file); 
+                $a = $data->rowcount($sheet_index=0); 
+				//$data = new Reader($file);                 
+             for($i=1;$i<=$a;$i++){
+                if($i != 1 && $i != 2){                    
+                      $no  = trim($data->val($i, 'B')); //username
+                       if($no != NULL){
+                       	$checkuser = Radius_Radcheck::where('username', '=', $no)
+                       	->first();
+                       	if(count($checkuser)>0){
+	                       	Artisan::call('blokir_user', ['user' => $no]);
+                       	}
+					}
+				}
+			}
+            Session::flash('pesan', '<span class="alert alert-success"> berhasil export </span>');
+	        return Redirect::to('user_hotspot');			
+		}		
+	}
+
+	public function do_import_hapus_blokir(){
+        if(!file_exists($_FILES['userfile']['tmp_name']) || !is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+        Session::flash('pesan', '<span class="alert alert-danger"> error! no file! </span>');
+        return Redirect::to("user_hotspot");      
+        }else{
+            $file = $_FILES['userfile']['tmp_name'];
+                $data = new Reader($file); 
+                $a = $data->rowcount($sheet_index=0); 
+				//$data = new Reader($file);                 
+             for($i=1;$i<=$a;$i++){
+                if($i != 1 && $i != 2){                    
+                      $no  = trim($data->val($i, 'B')); //username
+                       if($no != NULL){
+                       	$checkuser = Radius_Radcheck::where('username', '=', $no)
+                       	->first();
+                       	if(count($checkuser)>0){
+	                       	Artisan::call('hapus_blokir_user', ['user' => $no]);
+                       	}
+					}
+				}
+			}
+            Session::flash('pesan', '<span class="alert alert-success"> berhasil export </span>');
+	        return Redirect::to('user_hotspot');			
+		}		
+	}
+
+
 	public function view_detail($id){
 		$d = Radius_Radcheck::where('username', '=', $id)->first();
 		return View::make('user_hotspot.popup.view_detail', compact('d'));

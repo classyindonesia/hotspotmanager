@@ -15,7 +15,7 @@ class backupdb_to_email extends Command {
 	 */
 	protected $name = 'backupdb_to_email';
  
-	protected $description = 'Command description.';
+	protected $description = 'Backup database ke email';
 
  
 	public function __construct()
@@ -66,8 +66,7 @@ class backupdb_to_email extends Command {
  		$this->info('sending files to your email backup...');
 
 			Mail::send('emails.backup_database', array('key' => 'value'), function($message){
-			    //$message->from('rey.barrolz@gmail.com', 'Laravel');
-			    $message->to(getenv('MAIL_BACKUP_DB_USERNAME'))
+ 			    $message->to(getenv('MAIL_BACKUP_DB_USERNAME'))
 			    ->subject('Backup Database HSMAN, '.Fungsi::date_to_tgl(date('Y-m-d')) );
 			    $message->attach(storage_path('cache/backup_radius_'.date('Y-m-d').'.sql.gz'));
 			    $message->attach(storage_path('cache/backup_radius2_'.date('Y-m-d').'.sql.gz'));
