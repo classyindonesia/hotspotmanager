@@ -34,6 +34,7 @@ $.get('{{ URL::to("obrolan/show") }}/'+data, function(data){
 
 
 <div class='col-md-12'>
+    
 	@include('obrolan.list_pesan')
 </div>
 

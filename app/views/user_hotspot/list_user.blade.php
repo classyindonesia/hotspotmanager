@@ -8,9 +8,9 @@
 		<th width='5%' style='text-align:center;'>No</th>
 		<th width='15%'>Username</th>
 		<th>Nama</th>
-		<th width='10%'>Profile</th>
+		<th width='200px'>Profile</th>
 		<th width='10%'>Usage</th>
-		<th width='12%'>action</th>
+		<th width='100px'>action</th>
 	</tr>
 	</thead>
 	<tbody>	
