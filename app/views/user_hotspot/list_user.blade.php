@@ -10,7 +10,7 @@
 		<th>Nama</th>
 		<th width='200px'>Profile</th>
 		<th width='10%'>Usage</th>
-		<th width='100px'>action</th>
+		<th width='200px' class="text-center">action</th>
 	</tr>
 	</thead>
 	<tbody>	
@@ -45,7 +45,7 @@
 		 echo Fungsi::size($drx+$dtx);
 		 ?>
 	 </td>
-	 <td>
+	 <td class="text-center">
 		@include('user_hotspot.action')
 	 </td>
 	</tr>
