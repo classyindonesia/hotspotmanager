@@ -16,7 +16,7 @@ class ConfigController extends BaseController {
 
 	public function update_variable(){
 		$var = Input::get('variable');
-		$val = Input::get('value');
+		$val = Fungsi::filter(Input::get('value'));
 		$o = Setup_Variable::where('variable', '=', $var)->first();
 		$o->value = $val;
 		$o->save();
